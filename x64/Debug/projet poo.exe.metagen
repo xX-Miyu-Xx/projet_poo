@@ -1,0 +1,55 @@
+  projetpoo.CRUD_CLient.resources - Embedded, ContainedInManifestFile, 
+  projetpoo.CRUD_Commandes.resources - Embedded, ContainedInManifestFile, 
+  projetpoo.CRUD_Personnel.resources - Embedded, ContainedInManifestFile, 
+  projetpoo.CRUD_Stock.resources - Embedded, ContainedInManifestFile, 
+  projetpoo.Login.resources - Embedded, ContainedInManifestFile, 
+  projetpoo.UsersPage.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly projet poo, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class Utilisateur: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, Int32, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    getNom(): PrivateScope, Public, HideBySig
+    getID(): PrivateScope, Public, HideBySig
+    getPrenom(): PrivateScope, Public, HideBySig
+    getTypeUtilisateur(): PrivateScope, Public, HideBySig
+Class CRUD_Client.CRUD_Client: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CRUD_Commandes.CRUD_Commandes: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CRUD_Personnel.CRUD_Personnel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CRUD_Stock.CRUD_Stock: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class UsersPage.UsersPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Statistiques.Statistiques: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Login.Login: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Utilisateur CurrentUser 'get ' : 
+  Methods:
+    get_CurrentUser(): PrivateScope, Public, HideBySig, SpecialName
+    getIsLogged(): PrivateScope, Public, HideBySig
+    setIsLogged(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
