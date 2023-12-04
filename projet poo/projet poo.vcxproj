@@ -120,16 +120,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CAD.cpp" />
+    <ClCompile Include="CLmap.cpp" />
+    <ClCompile Include="CLservices.cpp" />
     <ClCompile Include="CRUD_Client.cpp" />
     <ClCompile Include="CRUD_Commandes.cpp" />
     <ClCompile Include="CRUD_Personnel.cpp" />
     <ClCompile Include="CRUD_Stock.cpp" />
     <ClCompile Include="Login.cpp" />
+    <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Statistiques.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UsersPage.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CAD.h" />
+    <ClInclude Include="CLmapTB.h" />
+    <ClInclude Include="CLservices.h" />
     <ClInclude Include="CRUD_CLient.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -142,7 +149,9 @@
     <ClInclude Include="CRUD_Stock.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="PageManager.h" />
+    <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Statistiques.h">
       <FileType>CppForm</FileType>
     </ClInclude>

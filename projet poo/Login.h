@@ -35,7 +35,7 @@ namespace Login {
 
 	private:
 		Utilisateur^ utilisateur; // Variable pour stocker l'utilisateur
-		Dictionary<String^, System::Windows::Forms::Form^>^ Pages = gcnew Dictionary<String^, System::Windows::Forms::Form^>();
+		Dictionary<String^, Form^>^ Pages = gcnew Dictionary<String^, Form^>();
 
 	public:
 		property Utilisateur^ CurrentUser {
@@ -159,14 +159,13 @@ namespace Login {
 		String^ enteredLogin = textBox1->Text;
 		String^ enteredPassword = textBox2->Text;
 
-		if (enteredLogin == "User" && enteredPassword == "User") {
+		if (enteredLogin == "User" && enteredPassword == "User") {																						// a changer avec la bdd
 			// Attribuer a la variable utilisateur, la personne qui s'est identifie pour pouvoir y acceder par la suite
 			utilisateur = gcnew Utilisateur("Mark", 1, "Vassilenko", "user");
 				
 			// Créer une instance du formulaire MyForm
 			Pages["UsersPage"] = gcnew UsersPage::UsersPage(utilisateur,Pages);
-			Pages["CRUD_Client"] = gcnew CRUD_Client::CRUD_Client(utilisateur, Pages);
-			Pages["CRUD_Personnel"] = gcnew CRUD_Personnel::CRUD_Personnel(utilisateur, Pages);
+			this->setIsLogged(true);
 
 			// Afficher le formulaire MyForm
 			Pages["UsersPage"]->Show();
@@ -185,6 +184,7 @@ namespace Login {
 			Pages["CRUD_Commandes"] = gcnew CRUD_Commandes::CRUD_Commandes(utilisateur, Pages);
 			Pages["CRUD_Stock"] = gcnew CRUD_Stock::CRUD_Stock(utilisateur, Pages);
 			Pages["Statistiques"] = gcnew Statistiques::Statistiques();
+			this->setIsLogged(true);
 
 			// Afficher le formulaire MyForm
 			Pages["UsersPage"]->Show();
@@ -195,8 +195,9 @@ namespace Login {
 		else {
 			// Afficher un message d'erreur si les identifiants sont incorrects
 			MessageBox::Show("Invalid login or password. Please try again.", "Login Failed", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		}
-	}
+			this->setIsLogged(false);
+		}																																			// jusqu'ici
+	}																	
 
 
 };

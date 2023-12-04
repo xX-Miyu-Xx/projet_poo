@@ -20,7 +20,7 @@ namespace CRUD_Stock {
 	public ref class CRUD_Stock : public System::Windows::Forms::Form
 	{
 	public:
-		CRUD_Stock(Utilisateur^ user, Dictionary<String^, System::Windows::Forms::Form^>^% Ptr_Pages)
+		CRUD_Stock(Utilisateur^ user, Dictionary<String^, Form^>^% Ptr_Pages)
 		{
 			InitializeComponent();
 			utilisateur = user;
@@ -28,7 +28,7 @@ namespace CRUD_Stock {
 			this->label1->Text = "Hello " + utilisateur->getNom() + " " + utilisateur->getPrenom();
 		}
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ID_Personnel;
-	private: Dictionary<String^, System::Windows::Forms::Form^>^ Pages;
+	private: Dictionary<String^, Form^>^ Pages;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ID_Stock;
 	public:
 

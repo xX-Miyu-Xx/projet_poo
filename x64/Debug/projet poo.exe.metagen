@@ -53,3 +53,6 @@ Class Login.Login: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     get_CurrentUser(): PrivateScope, Public, HideBySig, SpecialName
     getIsLogged(): PrivateScope, Public, HideBySig
     setIsLogged(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+Class projetpoo.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

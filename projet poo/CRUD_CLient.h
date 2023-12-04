@@ -20,7 +20,7 @@ namespace CRUD_Client {
 	public ref class CRUD_Client : public System::Windows::Forms::Form
 	{
 	public:
-		CRUD_Client(Utilisateur^ user, Dictionary<String^, System::Windows::Forms::Form^>^% Ptr_Pages)
+		CRUD_Client(Utilisateur^ user, Dictionary<String^, Form^>^% Ptr_Pages)
 		{
 			InitializeComponent();
 			utilisateur = user;
@@ -35,7 +35,7 @@ namespace CRUD_Client {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ adresse_livraison_client;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ anniversire_client;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ id_departement;
-	private: Dictionary<String^, System::Windows::Forms::Form^>^ Pages;
+	private: Dictionary<String^, Form^>^ Pages;
 
 	public:
 

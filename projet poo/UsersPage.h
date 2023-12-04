@@ -20,7 +20,7 @@ namespace UsersPage {
 	public ref class UsersPage : public System::Windows::Forms::Form
 	{
 	public:
-		UsersPage(Utilisateur^ user, Dictionary<String^, System::Windows::Forms::Form^>^% Ptr_Pages)
+		UsersPage(Utilisateur^ user, Dictionary<String^, Form^>^% Ptr_Pages)
 		{
 			InitializeComponent();
 			utilisateur = user;
@@ -32,7 +32,7 @@ namespace UsersPage {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ AdminButton;
 
-	private: Dictionary<String^, System::Windows::Forms::Form^>^ Pages;
+	private: Dictionary<String^, Form^>^ Pages;
 
 	public:
 
