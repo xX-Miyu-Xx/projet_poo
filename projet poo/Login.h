@@ -5,6 +5,7 @@
 #include "CRUD_Commandes.h"
 #include "CRUD_Stock.h"
 #include "Statistiques.h"
+#include "CRUD_User.h"
 #include <map>
 #include <string>
 #pragma once
@@ -165,6 +166,7 @@ namespace Login {
 				
 			// Créer une instance du formulaire MyForm
 			Pages["UsersPage"] = gcnew UsersPage::UsersPage(utilisateur,Pages);
+			Pages["CRUD_User"] = gcnew CRUD_User::CRUD_User(utilisateur, Pages);
 			this->setIsLogged(true);
 
 			// Afficher le formulaire MyForm
@@ -184,6 +186,7 @@ namespace Login {
 			Pages["CRUD_Commandes"] = gcnew CRUD_Commandes::CRUD_Commandes(utilisateur, Pages);
 			Pages["CRUD_Stock"] = gcnew CRUD_Stock::CRUD_Stock(utilisateur, Pages);
 			Pages["Statistiques"] = gcnew Statistiques::Statistiques();
+			Pages["CRUD_User"] = gcnew CRUD_User::CRUD_User(utilisateur, Pages);
 			this->setIsLogged(true);
 
 			// Afficher le formulaire MyForm

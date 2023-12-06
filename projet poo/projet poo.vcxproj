@@ -127,6 +127,7 @@
     <ClCompile Include="CRUD_Commandes.cpp" />
     <ClCompile Include="CRUD_Personnel.cpp" />
     <ClCompile Include="CRUD_Stock.cpp" />
+    <ClCompile Include="CRUD_User.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Statistiques.cpp" />
@@ -147,6 +148,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CRUD_Stock.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CRUD_User.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
@@ -175,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CRUD_Stock.resx">
       <DependentUpon>CRUD_Stock.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRUD_User.resx">
+      <DependentUpon>CRUD_User.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.h</DependentUpon>

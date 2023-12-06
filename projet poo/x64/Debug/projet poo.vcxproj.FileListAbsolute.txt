@@ -6,3 +6,12 @@ C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.CRUD_CLien
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.CRUD_Personnel.resources
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.CRUD_Stock.resources
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.CRUD_Commandes.resources
+C:\Users\Utilisateur\source\repos\xX-Miyu-Xx\projet_poo\projet poo\x64\Debug\projet poo.vcxproj.AssemblyReference.cache
+C:\Users\Utilisateur\source\repos\xX-Miyu-Xx\projet_poo\projet poo\x64\Debug\projetpoo.CRUD_CLient.resources
+C:\Users\Utilisateur\source\repos\xX-Miyu-Xx\projet_poo\projet poo\x64\Debug\projetpoo.CRUD_Commandes.resources
+C:\Users\Utilisateur\source\repos\xX-Miyu-Xx\projet_poo\projet poo\x64\Debug\projetpoo.CRUD_Personnel.resources
+C:\Users\Utilisateur\source\repos\xX-Miyu-Xx\projet_poo\projet poo\x64\Debug\projetpoo.CRUD_Stock.resources
+C:\Users\Utilisateur\source\repos\xX-Miyu-Xx\projet_poo\projet poo\x64\Debug\projetpoo.Login.resources
+C:\Users\Utilisateur\source\repos\xX-Miyu-Xx\projet_poo\projet poo\x64\Debug\projetpoo.UsersPage.resources
+C:\Users\Utilisateur\source\repos\xX-Miyu-Xx\projet_poo\projet poo\x64\Debug\projet poo.vcxproj.GenerateResource.cache
+C:\Users\Utilisateur\source\repos\xX-Miyu-Xx\projet_poo\projet poo\x64\Debug\projetpoo.CRUD_User.resources
