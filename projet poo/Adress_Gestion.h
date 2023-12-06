@@ -5,7 +5,7 @@
 #include <map>
 #include <string>
 
-namespace CRUD_Client {
+namespace Adress_Gestion {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -15,10 +15,10 @@ namespace CRUD_Client {
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
 
-	public ref class CRUD_Client : public System::Windows::Forms::Form
+	public ref class Adress_Gestion : public System::Windows::Forms::Form
 	{
 	public:
-		CRUD_Client(Utilisateur^ user, Dictionary<String^, Form^>^% Ptr_Pages)
+		Adress_Gestion(Utilisateur^ user, Dictionary<String^, Form^>^% Ptr_Pages)
 		{
 			InitializeComponent();
 			Pages = Ptr_Pages;
@@ -28,7 +28,7 @@ namespace CRUD_Client {
 		/// <summary>
 		/// Nettoyage des ressources utilisйes.
 		/// </summary>
-		~CRUD_Client()
+		~Adress_Gestion()
 		{
 			if (components)
 			{
@@ -43,10 +43,8 @@ namespace CRUD_Client {
 	private: System::Windows::Forms::Button^ btn_insert;
 	private: System::Windows::Forms::Button^ btn_delete;
 	private: System::Windows::Forms::Button^ btn_update;
-	private: System::Windows::Forms::TextBox^ client_prenom;
-
-	private: System::Windows::Forms::TextBox^ id_client;
-
+	private: System::Windows::Forms::TextBox^ id_personnel;
+	private: System::Windows::Forms::TextBox^ id_commande;
 
 
 
@@ -56,20 +54,16 @@ namespace CRUD_Client {
 
 	private: NS_Comp_Svc::CLservices^ oSvc;
 	private: System::Data::DataSet^ oDs;
-	private: System::Windows::Forms::TextBox^ id_ville;
+	private: System::Windows::Forms::TextBox^ date_solde;
 
-	private: System::Windows::Forms::TextBox^ adresse_livraison_client;
-
-
-	private: System::Windows::Forms::TextBox^ adresse_client;
+	private: System::Windows::Forms::TextBox^ date_payement;
 
 
 
-
-	private: System::Windows::Forms::TextBox^ client_nom;
-
+	private: System::Windows::Forms::TextBox^ date_commande;
 
 
+	private: System::Windows::Forms::TextBox^ date_livraison;
 
 
 
@@ -91,17 +85,15 @@ namespace CRUD_Client {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::TextBox^ anniversaire_client;
-
+	private: System::Windows::Forms::TextBox^ moyen_payement;
 
 
 
 	private: System::Windows::Forms::Label^ label12;
-	private: System::Windows::Forms::TextBox^ date_1erachat;
+	private: System::Windows::Forms::TextBox^ id_client;
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Button^ button7;
-
-
-
 
 
 
@@ -127,17 +119,19 @@ namespace CRUD_Client {
 			this->btn_insert = (gcnew System::Windows::Forms::Button());
 			this->btn_delete = (gcnew System::Windows::Forms::Button());
 			this->btn_update = (gcnew System::Windows::Forms::Button());
-			this->client_prenom = (gcnew System::Windows::Forms::TextBox());
-			this->id_client = (gcnew System::Windows::Forms::TextBox());
-			this->id_ville = (gcnew System::Windows::Forms::TextBox());
-			this->adresse_livraison_client = (gcnew System::Windows::Forms::TextBox());
-			this->adresse_client = (gcnew System::Windows::Forms::TextBox());
-			this->client_nom = (gcnew System::Windows::Forms::TextBox());
+			this->id_personnel = (gcnew System::Windows::Forms::TextBox());
+			this->id_commande = (gcnew System::Windows::Forms::TextBox());
+			this->date_solde = (gcnew System::Windows::Forms::TextBox());
+			this->date_payement = (gcnew System::Windows::Forms::TextBox());
+			this->date_commande = (gcnew System::Windows::Forms::TextBox());
+			this->date_livraison = (gcnew System::Windows::Forms::TextBox());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->date_1erachat = (gcnew System::Windows::Forms::TextBox());
+			this->id_client = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->anniversaire_client = (gcnew System::Windows::Forms::TextBox());
+			this->moyen_payement = (gcnew System::Windows::Forms::TextBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
@@ -180,7 +174,7 @@ namespace CRUD_Client {
 			this->btn_load->TabIndex = 1;
 			this->btn_load->Text = L"Load DB";
 			this->btn_load->UseVisualStyleBackColor = true;
-			this->btn_load->Click += gcnew System::EventHandler(this, &CRUD_Client::btn_load_Click);
+			this->btn_load->Click += gcnew System::EventHandler(this, &Adress_Gestion::btn_load_Click);
 			// 
 			// btn_insert
 			// 
@@ -191,7 +185,7 @@ namespace CRUD_Client {
 			this->btn_insert->TabIndex = 2;
 			this->btn_insert->Text = L"INS";
 			this->btn_insert->UseVisualStyleBackColor = true;
-			this->btn_insert->Click += gcnew System::EventHandler(this, &CRUD_Client::btn_insert_Click);
+			this->btn_insert->Click += gcnew System::EventHandler(this, &Adress_Gestion::btn_insert_Click);
 			// 
 			// btn_delete
 			// 
@@ -202,7 +196,7 @@ namespace CRUD_Client {
 			this->btn_delete->TabIndex = 4;
 			this->btn_delete->Text = L"DEL";
 			this->btn_delete->UseVisualStyleBackColor = true;
-			this->btn_delete->Click += gcnew System::EventHandler(this, &CRUD_Client::btn_delete_Click);
+			this->btn_delete->Click += gcnew System::EventHandler(this, &Adress_Gestion::btn_delete_Click);
 			// 
 			// btn_update
 			// 
@@ -213,56 +207,56 @@ namespace CRUD_Client {
 			this->btn_update->TabIndex = 3;
 			this->btn_update->Text = L"UPD";
 			this->btn_update->UseVisualStyleBackColor = true;
-			this->btn_update->Click += gcnew System::EventHandler(this, &CRUD_Client::btn_update_Click);
+			this->btn_update->Click += gcnew System::EventHandler(this, &Adress_Gestion::btn_update_Click);
 			// 
-			// client_prenom
+			// id_personnel
 			// 
-			this->client_prenom->Location = System::Drawing::Point(384, 161);
-			this->client_prenom->Margin = System::Windows::Forms::Padding(6);
-			this->client_prenom->Name = L"client_prenom";
-			this->client_prenom->Size = System::Drawing::Size(610, 31);
-			this->client_prenom->TabIndex = 7;
+			this->id_personnel->Location = System::Drawing::Point(384, 161);
+			this->id_personnel->Margin = System::Windows::Forms::Padding(6);
+			this->id_personnel->Name = L"id_personnel";
+			this->id_personnel->Size = System::Drawing::Size(610, 31);
+			this->id_personnel->TabIndex = 7;
 			// 
-			// id_client
+			// id_commande
 			// 
-			this->id_client->Location = System::Drawing::Point(384, 93);
-			this->id_client->Margin = System::Windows::Forms::Padding(6);
-			this->id_client->Name = L"id_client";
-			this->id_client->Size = System::Drawing::Size(610, 31);
-			this->id_client->TabIndex = 6;
+			this->id_commande->Location = System::Drawing::Point(384, 93);
+			this->id_commande->Margin = System::Windows::Forms::Padding(6);
+			this->id_commande->Name = L"id_commande";
+			this->id_commande->Size = System::Drawing::Size(610, 31);
+			this->id_commande->TabIndex = 6;
 			// 
-			// id_ville
+			// date_solde
 			// 
-			this->id_ville->Location = System::Drawing::Point(384, 556);
-			this->id_ville->Margin = System::Windows::Forms::Padding(6);
-			this->id_ville->Name = L"id_ville";
-			this->id_ville->Size = System::Drawing::Size(610, 31);
-			this->id_ville->TabIndex = 12;
+			this->date_solde->Location = System::Drawing::Point(387, 520);
+			this->date_solde->Margin = System::Windows::Forms::Padding(6);
+			this->date_solde->Name = L"date_solde";
+			this->date_solde->Size = System::Drawing::Size(610, 31);
+			this->date_solde->TabIndex = 12;
 			// 
-			// adresse_livraison_client
+			// date_payement
 			// 
-			this->adresse_livraison_client->Location = System::Drawing::Point(384, 392);
-			this->adresse_livraison_client->Margin = System::Windows::Forms::Padding(6);
-			this->adresse_livraison_client->Name = L"adresse_livraison_client";
-			this->adresse_livraison_client->Size = System::Drawing::Size(610, 31);
-			this->adresse_livraison_client->TabIndex = 10;
+			this->date_payement->Location = System::Drawing::Point(384, 374);
+			this->date_payement->Margin = System::Windows::Forms::Padding(6);
+			this->date_payement->Name = L"date_payement";
+			this->date_payement->Size = System::Drawing::Size(610, 31);
+			this->date_payement->TabIndex = 10;
 			// 
-			// adresse_client
+			// date_commande
 			// 
-			this->adresse_client->Location = System::Drawing::Point(384, 315);
-			this->adresse_client->Margin = System::Windows::Forms::Padding(6);
-			this->adresse_client->Name = L"adresse_client";
-			this->adresse_client->Size = System::Drawing::Size(610, 31);
-			this->adresse_client->TabIndex = 9;
+			this->date_commande->Location = System::Drawing::Point(384, 297);
+			this->date_commande->Margin = System::Windows::Forms::Padding(6);
+			this->date_commande->Name = L"date_commande";
+			this->date_commande->Size = System::Drawing::Size(610, 31);
+			this->date_commande->TabIndex = 9;
 			// 
-			// client_nom
+			// date_livraison
 			// 
-			this->client_nom->Location = System::Drawing::Point(384, 229);
-			this->client_nom->Margin = System::Windows::Forms::Padding(6);
-			this->client_nom->Name = L"client_nom";
-			this->client_nom->Size = System::Drawing::Size(610, 31);
-			this->client_nom->TabIndex = 8;
-			this->client_nom->TextChanged += gcnew System::EventHandler(this, &CRUD_Client::date_livraison_TextChanged);
+			this->date_livraison->Location = System::Drawing::Point(384, 229);
+			this->date_livraison->Margin = System::Windows::Forms::Padding(6);
+			this->date_livraison->Name = L"date_livraison";
+			this->date_livraison->Size = System::Drawing::Size(610, 31);
+			this->date_livraison->TabIndex = 8;
+			this->date_livraison->TextChanged += gcnew System::EventHandler(this, &Adress_Gestion::date_livraison_TextChanged);
 			// 
 			// splitContainer1
 			// 
@@ -273,10 +267,12 @@ namespace CRUD_Client {
 			// splitContainer1.Panel1
 			// 
 			this->splitContainer1->Panel1->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->splitContainer1->Panel1->Controls->Add(this->label11);
+			this->splitContainer1->Panel1->Controls->Add(this->textBox1);
 			this->splitContainer1->Panel1->Controls->Add(this->label12);
-			this->splitContainer1->Panel1->Controls->Add(this->date_1erachat);
+			this->splitContainer1->Panel1->Controls->Add(this->id_client);
 			this->splitContainer1->Panel1->Controls->Add(this->label8);
-			this->splitContainer1->Panel1->Controls->Add(this->anniversaire_client);
+			this->splitContainer1->Panel1->Controls->Add(this->moyen_payement);
 			this->splitContainer1->Panel1->Controls->Add(this->label10);
 			this->splitContainer1->Panel1->Controls->Add(this->label9);
 			this->splitContainer1->Panel1->Controls->Add(this->label7);
@@ -287,14 +283,14 @@ namespace CRUD_Client {
 			this->splitContainer1->Panel1->Controls->Add(this->label1);
 			this->splitContainer1->Panel1->Controls->Add(this->btn_update);
 			this->splitContainer1->Panel1->Controls->Add(this->btn_delete);
-			this->splitContainer1->Panel1->Controls->Add(this->client_nom);
+			this->splitContainer1->Panel1->Controls->Add(this->date_livraison);
 			this->splitContainer1->Panel1->Controls->Add(this->btn_insert);
 			this->splitContainer1->Panel1->Controls->Add(this->btn_load);
-			this->splitContainer1->Panel1->Controls->Add(this->adresse_client);
-			this->splitContainer1->Panel1->Controls->Add(this->client_prenom);
-			this->splitContainer1->Panel1->Controls->Add(this->adresse_livraison_client);
-			this->splitContainer1->Panel1->Controls->Add(this->id_ville);
-			this->splitContainer1->Panel1->Controls->Add(this->id_client);
+			this->splitContainer1->Panel1->Controls->Add(this->date_commande);
+			this->splitContainer1->Panel1->Controls->Add(this->id_personnel);
+			this->splitContainer1->Panel1->Controls->Add(this->date_payement);
+			this->splitContainer1->Panel1->Controls->Add(this->date_solde);
+			this->splitContainer1->Panel1->Controls->Add(this->id_commande);
 			// 
 			// splitContainer1.Panel2
 			// 
@@ -311,41 +307,59 @@ namespace CRUD_Client {
 			this->splitContainer1->SplitterDistance = 1096;
 			this->splitContainer1->TabIndex = 13;
 			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(388, 617);
+			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(247, 25);
+			this->label11->TabIndex = 30;
+			this->label11->Text = L"Articles de la commande";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(390, 644);
+			this->textBox1->Margin = System::Windows::Forms::Padding(6);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(610, 31);
+			this->textBox1->TabIndex = 29;
+			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(382, 610);
+			this->label12->Location = System::Drawing::Point(385, 557);
 			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(153, 25);
+			this->label12->Size = System::Drawing::Size(90, 25);
 			this->label12->TabIndex = 28;
-			this->label12->Text = L"Date 1er achat";
+			this->label12->Text = L"Id Client";
 			// 
-			// date_1erachat
+			// id_client
 			// 
-			this->date_1erachat->Location = System::Drawing::Point(384, 637);
-			this->date_1erachat->Margin = System::Windows::Forms::Padding(6);
-			this->date_1erachat->Name = L"date_1erachat";
-			this->date_1erachat->Size = System::Drawing::Size(610, 31);
-			this->date_1erachat->TabIndex = 24;
+			this->id_client->Location = System::Drawing::Point(387, 584);
+			this->id_client->Margin = System::Windows::Forms::Padding(6);
+			this->id_client->Name = L"id_client";
+			this->id_client->Size = System::Drawing::Size(610, 31);
+			this->id_client->TabIndex = 24;
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(382, 437);
+			this->label8->Location = System::Drawing::Point(382, 419);
 			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(244, 25);
+			this->label8->Size = System::Drawing::Size(179, 25);
 			this->label8->TabIndex = 23;
-			this->label8->Text = L"Date Anniversaire Client";
+			this->label8->Text = L"Moyen Payement";
 			// 
-			// anniversaire_client
+			// moyen_payement
 			// 
-			this->anniversaire_client->Location = System::Drawing::Point(386, 467);
-			this->anniversaire_client->Margin = System::Windows::Forms::Padding(6);
-			this->anniversaire_client->Name = L"anniversaire_client";
-			this->anniversaire_client->Size = System::Drawing::Size(610, 31);
-			this->anniversaire_client->TabIndex = 11;
+			this->moyen_payement->Location = System::Drawing::Point(386, 449);
+			this->moyen_payement->Margin = System::Windows::Forms::Padding(6);
+			this->moyen_payement->Name = L"moyen_payement";
+			this->moyen_payement->Size = System::Drawing::Size(610, 31);
+			this->moyen_payement->TabIndex = 11;
 			// 
 			// label10
 			// 
@@ -362,9 +376,9 @@ namespace CRUD_Client {
 			this->label9->Location = System::Drawing::Point(380, 130);
 			this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(147, 25);
+			this->label9->Size = System::Drawing::Size(132, 25);
 			this->label9->TabIndex = 20;
-			this->label9->Text = L"Client Prenom";
+			this->label9->Text = L"Id Personnel";
 			// 
 			// label7
 			// 
@@ -372,9 +386,9 @@ namespace CRUD_Client {
 			this->label7->Location = System::Drawing::Point(378, 64);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(90, 25);
+			this->label7->Size = System::Drawing::Size(144, 25);
 			this->label7->TabIndex = 18;
-			this->label7->Text = L"Id Client";
+			this->label7->Text = L"Id Commande";
 			// 
 			// label6
 			// 
@@ -382,40 +396,40 @@ namespace CRUD_Client {
 			this->label6->Location = System::Drawing::Point(380, 198);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(117, 25);
+			this->label6->Size = System::Drawing::Size(150, 25);
 			this->label6->TabIndex = 17;
-			this->label6->Text = L"Client Nom";
-			this->label6->Click += gcnew System::EventHandler(this, &CRUD_Client::label6_Click);
+			this->label6->Text = L"Date Livraison";
+			this->label6->Click += gcnew System::EventHandler(this, &Adress_Gestion::label6_Click);
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(380, 285);
+			this->label5->Location = System::Drawing::Point(380, 267);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(148, 25);
+			this->label5->Size = System::Drawing::Size(172, 25);
 			this->label5->TabIndex = 16;
-			this->label5->Text = L"Adresse client";
+			this->label5->Text = L"Date Commande";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(380, 363);
+			this->label4->Location = System::Drawing::Point(380, 345);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(245, 25);
+			this->label4->Size = System::Drawing::Size(159, 25);
 			this->label4->TabIndex = 15;
-			this->label4->Text = L"Adresse Livraison Client";
+			this->label4->Text = L"Date Payement";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(380, 525);
+			this->label3->Location = System::Drawing::Point(383, 489);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(76, 25);
+			this->label3->Size = System::Drawing::Size(118, 25);
 			this->label3->TabIndex = 14;
-			this->label3->Text = L"Id Ville";
+			this->label3->Text = L"Date Solde";
 			// 
 			// label1
 			// 
@@ -429,26 +443,26 @@ namespace CRUD_Client {
 			// 
 			// button7
 			// 
-			this->button7->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->button7->Location = System::Drawing::Point(88, 525);
+			this->button7->BackColor = System::Drawing::SystemColors::ActiveBorder;
+			this->button7->Location = System::Drawing::Point(88, 520);
 			this->button7->Margin = System::Windows::Forms::Padding(4);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(550, 77);
-			this->button7->TabIndex = 22;
+			this->button7->TabIndex = 21;
 			this->button7->Text = L"Gestion d\'Adresse";
 			this->button7->UseVisualStyleBackColor = false;
-			this->button7->Click += gcnew System::EventHandler(this, &CRUD_Client::button7_Click);
+			this->button7->Click += gcnew System::EventHandler(this, &Adress_Gestion::button7_Click);
 			// 
 			// button6
 			// 
-			this->button6->Location = System::Drawing::Point(88, 614);
+			this->button6->Location = System::Drawing::Point(88, 612);
 			this->button6->Margin = System::Windows::Forms::Padding(4);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(550, 77);
 			this->button6->TabIndex = 20;
 			this->button6->Text = L"Page Utilisateur";
 			this->button6->UseVisualStyleBackColor = true;
-			this->button6->Click += gcnew System::EventHandler(this, &CRUD_Client::button6_Click);
+			this->button6->Click += gcnew System::EventHandler(this, &Adress_Gestion::button6_Click);
 			// 
 			// button5
 			// 
@@ -459,7 +473,7 @@ namespace CRUD_Client {
 			this->button5->TabIndex = 19;
 			this->button5->Text = L"Statistiques";
 			this->button5->UseVisualStyleBackColor = true;
-			this->button5->Click += gcnew System::EventHandler(this, &CRUD_Client::button5_Click);
+			this->button5->Click += gcnew System::EventHandler(this, &Adress_Gestion::button5_Click);
 			// 
 			// button4
 			// 
@@ -470,7 +484,7 @@ namespace CRUD_Client {
 			this->button4->TabIndex = 18;
 			this->button4->Text = L"Crud Stock";
 			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &CRUD_Client::button4_Click);
+			this->button4->Click += gcnew System::EventHandler(this, &Adress_Gestion::button4_Click);
 			// 
 			// button3
 			// 
@@ -482,18 +496,18 @@ namespace CRUD_Client {
 			this->button3->TabIndex = 17;
 			this->button3->Text = L"Crud Commandes";
 			this->button3->UseVisualStyleBackColor = false;
-			this->button3->Click += gcnew System::EventHandler(this, &CRUD_Client::button3_Click);
+			this->button3->Click += gcnew System::EventHandler(this, &Adress_Gestion::button3_Click);
 			// 
 			// button2
 			// 
-			this->button2->BackColor = System::Drawing::SystemColors::ActiveBorder;
 			this->button2->Location = System::Drawing::Point(88, 153);
 			this->button2->Margin = System::Windows::Forms::Padding(4);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(550, 77);
 			this->button2->TabIndex = 16;
 			this->button2->Text = L"Crud Client";
-			this->button2->UseVisualStyleBackColor = false;
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Adress_Gestion::button2_Click);
 			// 
 			// button1
 			// 
@@ -505,7 +519,7 @@ namespace CRUD_Client {
 			this->button1->TabIndex = 15;
 			this->button1->Text = L"Crud Personnel";
 			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &CRUD_Client::button1_Click);
+			this->button1->Click += gcnew System::EventHandler(this, &Adress_Gestion::button1_Click);
 			// 
 			// label2
 			// 
@@ -517,7 +531,7 @@ namespace CRUD_Client {
 			this->label2->TabIndex = 14;
 			this->label2->Text = L"Navigation";
 			// 
-			// CRUD_Client
+			// Adress_Gestion
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -526,9 +540,9 @@ namespace CRUD_Client {
 			this->Controls->Add(this->splitContainer1);
 			this->Margin = System::Windows::Forms::Padding(6);
 			this->MaximumSize = System::Drawing::Size(1886, 1231);
-			this->Name = L"CRUD_Client";
-			this->Text = L"CRUD Client";
-			this->Load += gcnew System::EventHandler(this, &CRUD_Client::MyForm_Load);
+			this->Name = L"Adress_Gestion";
+			this->Text = L"Adress Gestion";
+			this->Load += gcnew System::EventHandler(this, &Adress_Gestion::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_enr))->EndInit();
 			this->splitContainer1->Panel1->ResumeLayout(false);
 			this->splitContainer1->Panel1->PerformLayout();
@@ -543,7 +557,7 @@ namespace CRUD_Client {
 	private: System::Void btn_load_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->dgv_enr->Refresh();
-		this->oDs = this->oSvc->selectionnerLaTableClient("Rsl");
+		this->oDs = this->oSvc->selectionnerLaTableCommande("Rsl");
 		this->dgv_enr->DataSource = this->oDs;
 		this->dgv_enr->DataMember = "Rsl";
 	}
@@ -553,29 +567,42 @@ namespace CRUD_Client {
 	}
 	private: System::Void btn_insert_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oSvc->ajouterUnClient(System::Convert::ToInt32(this->id_client->Text), this->client_prenom->Text, this->client_nom->Text, this->adresse_client->Text, this->adresse_livraison_client->Text, this->anniversaire_client->Text, System::Convert::ToInt32(this->id_ville->Text), this->date_1erachat->Text);
+		this->oSvc->ajouterUneCommande(System::Convert::ToInt32(this->id_personnel->Text), System::Convert::ToInt32(this->id_commande->Text), this->date_livraison->Text, this->date_commande->Text, this->date_payement->Text, this->date_solde->Text, this->moyen_payement->Text, System::Convert::ToInt32(this->id_client->Text));
 		this->dgv_enr->Refresh();
-		this->oDs = this->oSvc->selectionnerLaTableClient("Rsl");
+		this->oDs = this->oSvc->selectionnerLaTableCommande("Rsl");
 		this->dgv_enr->DataSource = this->oDs;
 		this->dgv_enr->DataMember = "Rsl";
 	}
 	private: System::Void btn_update_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oSvc->modifierUnClient(System::Convert::ToInt32(this->id_client->Text), this->client_prenom->Text, this->client_nom->Text, this->adresse_client->Text, this->adresse_livraison_client->Text, this->anniversaire_client->Text, System::Convert::ToInt32(this->id_ville->Text), this->date_1erachat->Text);
+		this->oSvc->modifierUneCommande(System::Convert::ToInt32(this->id_personnel->Text), System::Convert::ToInt32(this->id_commande->Text), this->date_livraison->Text, this->date_commande->Text, this->date_payement->Text, this->date_solde->Text, this->moyen_payement->Text, System::Convert::ToInt32(this->id_client->Text));
 		this->dgv_enr->Refresh();
-		this->oDs = this->oSvc->selectionnerLaTableClient("Rsl");
+		this->oDs = this->oSvc->selectionnerLaTableCommande("Rsl");
 		this->dgv_enr->DataSource = this->oDs;
 		this->dgv_enr->DataMember = "Rsl";
 	}
 
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		// Vérifier si la clé "CRUD_Commandes" existe dans le dictionnaire
-		if (Pages->ContainsKey("CRUD_Commandes")) {
-			// Accéder à l'instance de CRUD_Commandes
-			System::Windows::Forms::Form^ crudCommandesForm = Pages["CRUD_Commandes"];
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		// Vérifier si la clé "CRUD_Client" existe dans le dictionnaire
+		if (Pages->ContainsKey("CRUD_Client")) {
+			// Accéder à l'instance de CRUD_Client
+			System::Windows::Forms::Form^ crudClientForm = Pages["CRUD_Client"];
 
-			// Changer l'onglet vers l'instance de CRUD_Commandes
-			if (crudCommandesForm != nullptr) {
-				crudCommandesForm->Show();
+			// Changer l'onglet vers l'instance de CRUD_Client
+			if (crudClientForm != nullptr) {
+				crudClientForm->Show();
+				this->Hide(); // Cacher l'onglet actuel 
+			}
+		}
+	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+// Vérifier si la clé "CRUD_Commande" existe dans le dictionnaire
+		if (Pages->ContainsKey("CRUD_Commandes")) {
+			// Accéder à l'instance de CRUD_Commande
+			System::Windows::Forms::Form^ crudCommandeForm = Pages["CRUD_Commandes"];
+
+			// Changer l'onglet vers l'instance de CRUD_Commande
+			if (crudCommandeForm != nullptr) {
+				crudCommandeForm->Show();
 				this->Hide(); // Cacher l'onglet actuel 
 			}
 		}
@@ -620,9 +647,9 @@ namespace CRUD_Client {
 		}
 	}
 	private: System::Void btn_delete_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oSvc->supprimerUnClient(System::Convert::ToInt32(this->id_client->Text));
+		this->oSvc->supprimerUneCommande(System::Convert::ToInt32(this->id_commande->Text));
 		this->dgv_enr->Refresh();
-		this->oDs = this->oSvc->selectionnerLaTableClient("Rsl");
+		this->oDs = this->oSvc->selectionnerLaTableCommande("Rsl");
 		this->dgv_enr->DataSource = this->oDs;
 		this->dgv_enr->DataMember = "Rsl";
 	}
@@ -644,17 +671,6 @@ namespace CRUD_Client {
 	private: System::Void date_livraison_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
-		// Vérifier si la clé "Adress_Gestion" existe dans le dictionnaire
-		if (Pages->ContainsKey("Adress_Gestion")) {
-			// Accéder à l'instance de Adress_Gestion
-			System::Windows::Forms::Form^ adresseGestionForm = Pages["Adress_Gestion"];
-
-			// Changer l'onglet vers l'instance de Adress_Gestion
-			if (adresseGestionForm != nullptr) {
-				adresseGestionForm->Show();
-				this->Hide(); // Cacher l'onglet actuel 
-			}
-		}
 	}
 };
 }

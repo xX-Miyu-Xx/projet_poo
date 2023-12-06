@@ -6,3 +6,4 @@ C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.CRUD_CLien
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.CRUD_Personnel.resources
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.CRUD_Stock.resources
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.CRUD_Commandes.resources
+C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.Adress_Gestion.resources

@@ -120,6 +120,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Adress_Gestion.cpp" />
     <ClCompile Include="CAD.cpp" />
     <ClCompile Include="CLmap.cpp" />
     <ClCompile Include="CLservices.cpp" />
@@ -134,6 +135,9 @@
     <ClCompile Include="UsersPage.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adress_Gestion.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CAD.h" />
     <ClInclude Include="CLmapTB.h" />
     <ClInclude Include="CLservices.h" />
@@ -164,6 +168,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Adress_Gestion.resx">
+      <DependentUpon>Adress_Gestion.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRUD_CLient.resx">
       <DependentUpon>CRUD_CLient.h</DependentUpon>
     </EmbeddedResource>

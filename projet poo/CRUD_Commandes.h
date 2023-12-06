@@ -93,6 +93,7 @@ namespace CRUD_Commandes {
 	private: System::Windows::Forms::TextBox^ id_client;
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Button^ button7;
 
 
 
@@ -125,6 +126,8 @@ namespace CRUD_Commandes {
 			this->date_commande = (gcnew System::Windows::Forms::TextBox());
 			this->date_livraison = (gcnew System::Windows::Forms::TextBox());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->id_client = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -137,6 +140,7 @@ namespace CRUD_Commandes {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
@@ -144,8 +148,6 @@ namespace CRUD_Commandes {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_enr))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
 			this->splitContainer1->Panel1->SuspendLayout();
@@ -293,6 +295,7 @@ namespace CRUD_Commandes {
 			// splitContainer1.Panel2
 			// 
 			this->splitContainer1->Panel2->BackColor = System::Drawing::SystemColors::Info;
+			this->splitContainer1->Panel2->Controls->Add(this->button7);
 			this->splitContainer1->Panel2->Controls->Add(this->button6);
 			this->splitContainer1->Panel2->Controls->Add(this->button5);
 			this->splitContainer1->Panel2->Controls->Add(this->button4);
@@ -303,6 +306,24 @@ namespace CRUD_Commandes {
 			this->splitContainer1->Size = System::Drawing::Size(1844, 733);
 			this->splitContainer1->SplitterDistance = 1096;
 			this->splitContainer1->TabIndex = 13;
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(388, 617);
+			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(247, 25);
+			this->label11->TabIndex = 30;
+			this->label11->Text = L"Articles de la commande";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(390, 644);
+			this->textBox1->Margin = System::Windows::Forms::Padding(6);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(610, 31);
+			this->textBox1->TabIndex = 29;
 			// 
 			// label12
 			// 
@@ -420,9 +441,21 @@ namespace CRUD_Commandes {
 			this->label1->TabIndex = 13;
 			this->label1->Text = L"Utilitaire";
 			// 
+			// button7
+			// 
+			this->button7->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->button7->Location = System::Drawing::Point(86, 531);
+			this->button7->Margin = System::Windows::Forms::Padding(4);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(550, 77);
+			this->button7->TabIndex = 22;
+			this->button7->Text = L"Gestion d\'Adresse";
+			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &CRUD_Commandes::button7_Click);
+			// 
 			// button6
 			// 
-			this->button6->Location = System::Drawing::Point(88, 598);
+			this->button6->Location = System::Drawing::Point(86, 621);
 			this->button6->Margin = System::Windows::Forms::Padding(4);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(550, 77);
@@ -433,7 +466,7 @@ namespace CRUD_Commandes {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(88, 500);
+			this->button5->Location = System::Drawing::Point(86, 439);
 			this->button5->Margin = System::Windows::Forms::Padding(4);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(550, 77);
@@ -444,7 +477,7 @@ namespace CRUD_Commandes {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(88, 406);
+			this->button4->Location = System::Drawing::Point(86, 345);
 			this->button4->Margin = System::Windows::Forms::Padding(4);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(550, 77);
@@ -456,7 +489,7 @@ namespace CRUD_Commandes {
 			// button3
 			// 
 			this->button3->BackColor = System::Drawing::SystemColors::ActiveBorder;
-			this->button3->Location = System::Drawing::Point(88, 317);
+			this->button3->Location = System::Drawing::Point(86, 256);
 			this->button3->Margin = System::Windows::Forms::Padding(4);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(550, 77);
@@ -467,7 +500,7 @@ namespace CRUD_Commandes {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(88, 223);
+			this->button2->Location = System::Drawing::Point(86, 162);
 			this->button2->Margin = System::Windows::Forms::Padding(4);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(550, 77);
@@ -479,7 +512,7 @@ namespace CRUD_Commandes {
 			// button1
 			// 
 			this->button1->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->button1->Location = System::Drawing::Point(88, 131);
+			this->button1->Location = System::Drawing::Point(86, 70);
 			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(550, 77);
@@ -497,24 +530,6 @@ namespace CRUD_Commandes {
 			this->label2->Size = System::Drawing::Size(114, 25);
 			this->label2->TabIndex = 14;
 			this->label2->Text = L"Navigation";
-			// 
-			// label11
-			// 
-			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(388, 617);
-			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(247, 25);
-			this->label11->TabIndex = 30;
-			this->label11->Text = L"Articles de la commande";
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(390, 644);
-			this->textBox1->Margin = System::Windows::Forms::Padding(6);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(610, 31);
-			this->textBox1->TabIndex = 29;
 			// 
 			// CRUD_Commandes
 			// 
@@ -643,6 +658,19 @@ namespace CRUD_Commandes {
 private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void date_livraison_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	// Vérifier si la clé "Adress_Gestion" existe dans le dictionnaire
+	if (Pages->ContainsKey("Adress_Gestion")) {
+		// Accéder à l'instance de Adress_Gestion
+		System::Windows::Forms::Form^ adresseGestionForm = Pages["Adress_Gestion"];
+
+		// Changer l'onglet vers l'instance de Adress_Gestion
+		if (adresseGestionForm != nullptr) {
+			adresseGestionForm->Show();
+			this->Hide(); // Cacher l'onglet actuel 
+		}
+	}
 }
 };
 }

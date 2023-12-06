@@ -1,3 +1,4 @@
+  projetpoo.Adress_Gestion.resources - Embedded, ContainedInManifestFile, 
   projetpoo.CRUD_CLient.resources - Embedded, ContainedInManifestFile, 
   projetpoo.CRUD_Commandes.resources - Embedded, ContainedInManifestFile, 
   projetpoo.CRUD_Personnel.resources - Embedded, ContainedInManifestFile, 
@@ -26,6 +27,9 @@ Class Utilisateur: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     getID(): PrivateScope, Public, HideBySig
     getPrenom(): PrivateScope, Public, HideBySig
     getTypeUtilisateur(): PrivateScope, Public, HideBySig
+Class Adress_Gestion.Adress_Gestion: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class CRUD_Client.CRUD_Client: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

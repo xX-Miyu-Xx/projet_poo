@@ -99,6 +99,7 @@ namespace CRUD_Stock {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::TextBox^ couleur_article;
+	private: System::Windows::Forms::Button^ button7;
 
 
 
@@ -139,6 +140,7 @@ namespace CRUD_Stock {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
@@ -290,6 +292,7 @@ namespace CRUD_Stock {
 			// splitContainer1.Panel2
 			// 
 			this->splitContainer1->Panel2->BackColor = System::Drawing::SystemColors::Info;
+			this->splitContainer1->Panel2->Controls->Add(this->button7);
 			this->splitContainer1->Panel2->Controls->Add(this->button6);
 			this->splitContainer1->Panel2->Controls->Add(this->button5);
 			this->splitContainer1->Panel2->Controls->Add(this->button4);
@@ -400,9 +403,21 @@ namespace CRUD_Stock {
 			this->label1->TabIndex = 13;
 			this->label1->Text = L"Utilitaire";
 			// 
+			// button7
+			// 
+			this->button7->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->button7->Location = System::Drawing::Point(90, 517);
+			this->button7->Margin = System::Windows::Forms::Padding(4);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(550, 77);
+			this->button7->TabIndex = 22;
+			this->button7->Text = L"Gestion d\'Adresse";
+			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &CRUD_Stock::button7_Click);
+			// 
 			// button6
 			// 
-			this->button6->Location = System::Drawing::Point(88, 598);
+			this->button6->Location = System::Drawing::Point(90, 608);
 			this->button6->Margin = System::Windows::Forms::Padding(4);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(550, 77);
@@ -413,7 +428,7 @@ namespace CRUD_Stock {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(88, 500);
+			this->button5->Location = System::Drawing::Point(90, 425);
 			this->button5->Margin = System::Windows::Forms::Padding(4);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(550, 77);
@@ -425,7 +440,7 @@ namespace CRUD_Stock {
 			// button4
 			// 
 			this->button4->BackColor = System::Drawing::SystemColors::ActiveBorder;
-			this->button4->Location = System::Drawing::Point(88, 406);
+			this->button4->Location = System::Drawing::Point(90, 333);
 			this->button4->Margin = System::Windows::Forms::Padding(4);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(550, 77);
@@ -437,7 +452,7 @@ namespace CRUD_Stock {
 			// button3
 			// 
 			this->button3->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->button3->Location = System::Drawing::Point(88, 317);
+			this->button3->Location = System::Drawing::Point(90, 244);
 			this->button3->Margin = System::Windows::Forms::Padding(4);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(550, 77);
@@ -449,7 +464,7 @@ namespace CRUD_Stock {
 			// button2
 			// 
 			this->button2->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->button2->Location = System::Drawing::Point(88, 223);
+			this->button2->Location = System::Drawing::Point(90, 150);
 			this->button2->Margin = System::Windows::Forms::Padding(4);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(550, 77);
@@ -461,7 +476,7 @@ namespace CRUD_Stock {
 			// button1
 			// 
 			this->button1->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->button1->Location = System::Drawing::Point(88, 131);
+			this->button1->Location = System::Drawing::Point(90, 58);
 			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(550, 77);
@@ -612,6 +627,19 @@ namespace CRUD_Stock {
 private: System::Void adresse_livraison_client_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	// Vérifier si la clé "Adress_Gestion" existe dans le dictionnaire
+	if (Pages->ContainsKey("Adress_Gestion")) {
+		// Accéder à l'instance de Adress_Gestion
+		System::Windows::Forms::Form^ adresseGestionForm = Pages["Adress_Gestion"];
+
+		// Changer l'onglet vers l'instance de Adress_Gestion
+		if (adresseGestionForm != nullptr) {
+			adresseGestionForm->Show();
+			this->Hide(); // Cacher l'onglet actuel 
+		}
+	}
 }
 };
 }

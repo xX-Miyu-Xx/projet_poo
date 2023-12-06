@@ -5,6 +5,7 @@
 #include "CRUD_Commandes.h"
 #include "CRUD_Stock.h"
 #include "Statistiques.h"
+#include "Adress_Gestion.h"
 #include <map>
 #include <string>
 #pragma once
@@ -184,6 +185,7 @@ namespace Login {
 			Pages["CRUD_Commandes"] = gcnew CRUD_Commandes::CRUD_Commandes(utilisateur, Pages);
 			Pages["CRUD_Stock"] = gcnew CRUD_Stock::CRUD_Stock(utilisateur, Pages);
 			Pages["Statistiques"] = gcnew Statistiques::Statistiques();
+			Pages["Adress_Gestion"] = gcnew Adress_Gestion::Adress_Gestion(utilisateur, Pages);
 			this->setIsLogged(true);
 
 			// Afficher le formulaire MyForm
