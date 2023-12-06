@@ -25,6 +25,17 @@ namespace NS_Comp_Svc
 		void modifierUneCommande(int, int, System::String^, System::String^, System::String^, System::String^, System::String^, int);
 		void supprimerUneCommande(int);
 
+		// Client functions
+		System::Data::DataSet^ selectionnerLaTableClient(System::String^);
+		void ajouterUnClient(int, System::String^, System::String^, System::String^, System::String^, System::String^, int, System::String^);
+		void modifierUnClient(int, System::String^, System::String^, System::String^, System::String^, System::String^, int, System::String^);
+		void supprimerUnClient(int);
+
+		// Article functions
+		System::Data::DataSet^ selectionnerLaTableArticles(System::String^);
+		void ajouterUnArticle(int, System::String^, System::String^, System::String^, int, System::String^, System::String^);
+		void modifierUnArticle(int, System::String^, System::String^, System::String^, int, System::String^, System::String^);
+		void supprimerUnArticle(int);
 
 	};
 }

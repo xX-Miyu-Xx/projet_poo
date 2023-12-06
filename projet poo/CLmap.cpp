@@ -29,6 +29,21 @@ void NS_Comp_Mappage::CLmapTB::setPersonnel(int Id, System::String^ nom, System:
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Client functions
 System::String^ NS_Comp_Mappage::CLmapTB::SelectClient(void)
 {
@@ -37,7 +52,7 @@ System::String^ NS_Comp_Mappage::CLmapTB::SelectClient(void)
 
 System::String^ NS_Comp_Mappage::CLmapTB::InsertClient(void)
 {
-	return "INSERT INTO [Projet_POO].[dbo].[Client] VALUES(1, '" + this->client_prenom + "', '" + this->client_nom + "', '" + this->adresse_client + "', '" + this->adresse_livraison_client + "', '1990-01-01', 1);";
+	return "INSERT INTO [Projet_POO].[dbo].[Client] VALUES(" + this->id_client + ", '" + this->client_prenom + "', '" + this->client_nom + "', '" + this->adresse_client + "', '" + this->adresse_livraison_client + "', '"+this->anniversaire_client+"' , "+this->id_ville_client+", '"+this->date_1erachat+"');";
 }
 
 System::String^ NS_Comp_Mappage::CLmapTB::DeleteClient(int id)
@@ -47,17 +62,26 @@ System::String^ NS_Comp_Mappage::CLmapTB::DeleteClient(int id)
 
 System::String^ NS_Comp_Mappage::CLmapTB::UpdateClient(void)
 {
-	return "UPDATE [Projet_POO].[dbo].[Client] SET client_prenom = '" + this->client_prenom + "', client_nom = '" + this->client_nom + "', adresse_client = '" + this->adresse_client + "', adresse_livraison_client = '" + this->adresse_livraison_client + "', anniversaire_client = '1990-01-01', id_ville_1 = 1 WHERE id_client = " + this->id_client + ";";
+	return "UPDATE [Projet_POO].[dbo].[Client] SET client_prenom = '" + this->client_prenom + "', client_nom = '" + this->client_nom + "', adresse_client = '" + this->adresse_client + "', adresse_livraison_client = '" + this->adresse_livraison_client + "', anniversaire_client = '" + this->anniversaire_client + "', id_ville = " + this->id_ville + ", date_1erachat = '" + this->date_1erachat + "' WHERE id_client = " + this->id_client + ";";
 }
 
-void NS_Comp_Mappage::CLmapTB::setClient(int id_client, System::String^ client_prénom, System::String^ client_nom, System::String^ adresse_client, System::String^ adresse_livraison_client)
+void NS_Comp_Mappage::CLmapTB::setClient(int id_client, System::String^ client_prenom, System::String^ client_nom, System::String^ adresse_client, System::String^ adresse_livraison_client, System::String^ anniversaire_client, int id_ville, System::String^ date_1erachat)
 {
 	this->id_client = id_client;
-	this->client_prenom = client_prénom;
+	this->client_prenom = client_prenom;
 	this->client_nom = client_nom;
 	this->adresse_client = adresse_client;
 	this->adresse_livraison_client = adresse_livraison_client;
+	this->anniversaire_client = anniversaire_client;
+	this->id_ville = id_ville;
+	this->date_1erachat = date_1erachat;
 }
+
+
+
+
+
+
 
 
 
@@ -68,12 +92,12 @@ void NS_Comp_Mappage::CLmapTB::setClient(int id_client, System::String^ client_p
 // Commande functions
 System::String^ NS_Comp_Mappage::CLmapTB::SelectCommande(void)
 {
-	return "SELECT * FROM [Projet_POO].[dbo].[Commande]";
+	return "SELECT Commande.*, commande_article.id_article AS article_info FROM[Projet_POO].[dbo].[Commande] JOIN [Projet_POO].[dbo].[commande_article] ON Commande.id_commande = commande_article.id_commande; ";
 }
 
 System::String^ NS_Comp_Mappage::CLmapTB::InsertCommande(void)
 {
-	return "INSERT INTO [Projet_POO].[dbo].[Commande] VALUES ("+this->id_personnel+"," + this->id_commande +",'" + this->date_livraison + "','" + this->date_commande + "','" + this->date_payement + "','" + this->moyen_payement + "','" + this->date_solde + "'," + this->id_client + ");";
+	return "INSERT INTO [Projet_POO].[dbo].[Commande] VALUES ("+this->id_commande+"," + this->id_personnel +",'" + this->date_livraison + "','" + this->date_commande + "','" + this->date_payement + "','" + this->moyen_payement + "','" + this->date_solde + "'," + this->id_client + ");";
 }
 
 System::String^ NS_Comp_Mappage::CLmapTB::DeleteCommande(int id)
@@ -97,58 +121,6 @@ void NS_Comp_Mappage::CLmapTB::setCommande( int id_personnel, int id_commande, S
 	this->date_solde = date_solde;
 	this->id_client = id_client;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// Stock functions
-System::String^ NS_Comp_Mappage::CLmapTB::SelectStock(void)
-{
-	return "SELECT * FROM [Projet_POO].[dbo].[Stock]";
-}
-
-System::String^ NS_Comp_Mappage::CLmapTB::InsertStock(void)
-{
-	return "INSERT INTO [Projet_POO].[dbo].[Stock] VALUES(1, 'Produit 1', 100, 'Réappro 1', 50, '2023-01-01');";
-}
-
-System::String^ NS_Comp_Mappage::CLmapTB::DeleteStock(void)
-{
-	return "DELETE FROM [Projet_POO].[dbo].[Stock] WHERE id_stock = " + this->id_stock + ";";
-}
-
-System::String^ NS_Comp_Mappage::CLmapTB::UpdateStock(void)
-{
-	return "UPDATE [Projet_POO].[dbo].[Stock] SET produit_nom = 'Produit 2', stock_produit = 120, réapprovisionnement_produit = 'Réappro 2', Montant_TTC = 60.00, date_ajout = '2023-02-01' WHERE id_stock = " + this->id_stock + ";";
-}
-
-void NS_Comp_Mappage::CLmapTB::setStock(int id_stock, System::String^ produit_nom, int stock_produit, System::String^ reapprovisionnement_produit, int Montant_TTC, System::String^ date_ajout)
-{
-	this->id_stock = id_stock;
-	this->produit_nom = produit_nom;
-	this->stock_produit = stock_produit;
-	this->reapprovisionnement_produit = reapprovisionnement_produit;
-	this->Montant_TTC = Montant_TTC;
-	this->date_ajout = date_ajout;
-}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -185,4 +157,37 @@ void NS_Comp_Mappage::CLmapTB::setStats(int id_stat, int id_article, int id_pers
 	this->commandes_totales = commandes_totales;
 	this->commandes_reussies = commandes_reussies;
 	this->commandes_echouees = commandes_echouees;
+}
+
+
+// Article functions
+System::String^ NS_Comp_Mappage::CLmapTB::SelectArticle(void)
+{
+	return "SELECT * FROM [Projet_POO].[dbo].[Articles]";
+}
+
+System::String^ NS_Comp_Mappage::CLmapTB::InsertArticle(void)
+{
+	return "INSERT INTO [Projet_POO].[dbo].[Articles] VALUES ("+this->id_article+","+this->montant_ht+","+this->montant_tva+",'"+this->reapprovisionnement_produit+"',"+this->stock_produit+",'"+this->couleur_article+"','"+this->remise_article+"' );";
+}
+
+System::String^ NS_Comp_Mappage::CLmapTB::DeleteArticle(int id)
+{
+	return "DELETE FROM [Projet_POO].[dbo].[Articles] WHERE id_article = " + id + ";";
+}
+
+System::String^ NS_Comp_Mappage::CLmapTB::UpdateArticle(void)
+{
+	return "UPDATE [Projet_POO].[dbo].[Articles] SET montant_ht = "+this->montant_ht+", montant_tva = "+this->montant_tva+", reapprovisionnement_produit = '"+this->reapprovisionnement_produit+"', stock_produit = "+this->stock_produit+", couleur_article = '"+this->couleur_article+"', remise_article = '"+this->remise_article+"' WHERE id_article = "+this->id_article+";";
+}
+
+void NS_Comp_Mappage::CLmapTB::setArticle(int id_article, System::String^ montant_ht, System::String^ montant_tva, System::String^ reapprovisionnement_produit, int stock_produit, System::String^ couleur_article, System::String^ remise_article)
+{
+	this->id_article = id_article;
+	this->montant_ht = montant_ht;
+	this->montant_tva = montant_tva;
+	this->reapprovisionnement_produit = reapprovisionnement_produit;
+	this->stock_produit = stock_produit;
+	this->couleur_article = couleur_article;
+	this->remise_article = remise_article;
 }

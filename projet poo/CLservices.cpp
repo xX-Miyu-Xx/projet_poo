@@ -77,3 +77,76 @@ void NS_Comp_Svc::CLservices::supprimerUneCommande(int id)
 
 	this->oCad->actionRows(sql);
 }
+
+// Client functions
+System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerLaTableClient(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->SelectClient();
+	return this->oCad->getRows(sql, dataTableName);
+}
+void NS_Comp_Svc::CLservices::ajouterUnClient(int id_client, System::String^ client_prenom, System::String^ client_nom, System::String^ adresse_client, System::String^ adresse_livraison_client, System::String^ anniversaire_client, int id_ville, System::String^ date_1erachat)
+{
+	System::String^ sql;
+
+	this->oMappTB->setClient(id_client, client_prenom, client_nom, adresse_client, adresse_livraison_client, anniversaire_client, id_ville, date_1erachat);
+	sql = this->oMappTB->InsertClient();
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::modifierUnClient(int id_client, System::String^ client_prenom, System::String^ client_nom, System::String^ adresse_client, System::String^ adresse_livraison_client, System::String^ anniversaire_client, int id_ville, System::String^ date_1erachat)
+{
+	System::String^ sql;
+
+	this->oMappTB->setClient(id_client, client_prenom, client_nom, adresse_client, adresse_livraison_client, anniversaire_client, id_ville, date_1erachat);
+	sql = this->oMappTB->UpdateClient();
+
+	this->oCad->actionRows(sql);
+}
+void NS_Comp_Svc::CLservices::supprimerUnClient(int id)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->DeleteClient(id);
+
+	this->oCad->actionRows(sql);
+}
+
+// Produit functions
+System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerLaTableArticles(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->SelectArticle();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+void NS_Comp_Svc::CLservices::ajouterUnArticle(int id_article , System::String^ montant_ht, System::String^ montant_tva, System::String^ reapprovisionnement_article, int stock_produit, System::String^ couleur_article, System::String^ remise_article)
+{
+	System::String^ sql;
+
+	this->oMappTB->setArticle(id_article, montant_ht, montant_tva, reapprovisionnement_article, stock_produit, couleur_article, remise_article);
+	sql = this->oMappTB->InsertArticle();
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::modifierUnArticle(int id_article, System::String^ montant_ht, System::String^ montant_tva, System::String^ reapprovisionnement_article, int stock_produit, System::String^ couleur_article, System::String^ remise_article)
+{
+	System::String^ sql;
+
+	this->oMappTB->setArticle(id_article, montant_ht, montant_tva, reapprovisionnement_article, stock_produit, couleur_article, remise_article);
+	sql = this->oMappTB->UpdateArticle();
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::supprimerUnArticle(int id)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->DeleteArticle(id);
+
+	this->oCad->actionRows(sql);
+}
