@@ -27,5 +27,9 @@ namespace NS_Comp_Svc
 
 		// Statistiques functions
 		System::Data::DataSet^ Moyenne_panier(System::String^);
+		System::Data::DataSet^ Chiffre_daffaire_per_mois(System::String^);
+		System::Data::DataSet^ Valeur_Commercial_Stocks(System::String^);
+		System::Data::DataSet^ reapprovisionnement_produits_sous_seuil(System::String^);
+		System::Data::DataSet^ Article_moins_vendus(System::String^);
 	};
 }

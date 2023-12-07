@@ -247,6 +247,7 @@ namespace Statistiques {
 			this->button14->TabIndex = 42;
 			this->button14->Text = L"Identifier";
 			this->button14->UseVisualStyleBackColor = true;
+			this->button14->Click += gcnew System::EventHandler(this, &Statistiques::button14_Click_1);
 			// 
 			// button13
 			// 
@@ -269,6 +270,7 @@ namespace Statistiques {
 			this->button12->TabIndex = 40;
 			this->button12->Text = L"Identifier";
 			this->button12->UseVisualStyleBackColor = true;
+			this->button12->Click += gcnew System::EventHandler(this, &Statistiques::button12_Click);
 			// 
 			// button10
 			// 
@@ -280,6 +282,7 @@ namespace Statistiques {
 			this->button10->TabIndex = 39;
 			this->button10->Text = L"Calculer";
 			this->button10->UseVisualStyleBackColor = true;
+			this->button10->Click += gcnew System::EventHandler(this, &Statistiques::button10_Click);
 			// 
 			// button11
 			// 
@@ -419,6 +422,7 @@ namespace Statistiques {
 			this->button8->TabIndex = 24;
 			this->button8->Text = L"Calculer";
 			this->button8->UseVisualStyleBackColor = true;
+			this->button8->Click += gcnew System::EventHandler(this, &Statistiques::button8_Click);
 			// 
 			// label3
 			// 
@@ -640,6 +644,31 @@ private: System::Void button7_Click_1(System::Object^ sender, System::EventArgs^
 	this->dgv_enr->DataMember = "Rsl";
 }
 private: System::Void splitContainer1_Panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->dgv_enr->Refresh();
+	this->oDs = this->oSvc->Chiffre_daffaire_per_mois("Rsl");
+	this->dgv_enr->DataSource = this->oDs;
+	this->dgv_enr->DataMember = "Rsl";
+}
+private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->dgv_enr->Refresh();
+	this->oDs = this->oSvc->Valeur_Commercial_Stocks("Rsl");
+	this->dgv_enr->DataSource = this->oDs;
+	this->dgv_enr->DataMember = "Rsl";
+}
+private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->dgv_enr->Refresh();
+	this->oDs = this->oSvc->reapprovisionnement_produits_sous_seuil("Rsl");
+	this->dgv_enr->DataSource = this->oDs;
+	this->dgv_enr->DataMember = "Rsl";
+}
+	 
+private: System::Void button14_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	this->dgv_enr->Refresh();
+	this->oDs = this->oSvc->Article_moins_vendus("Rsl");
+	this->dgv_enr->DataSource = this->oDs;
+	this->dgv_enr->DataMember = "Rsl";
 }
 };
 }

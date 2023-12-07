@@ -15,6 +15,9 @@ NS_Comp_Data::CLcad::CLcad(void)
 
 	this->oCmd->CommandType = System::Data::CommandType::Text;
 }
+
+
+
 System::Data::DataSet^ NS_Comp_Data::CLcad::getRows(System::String^ sSql, System::String^ sDataTableName)
 {
 	this->oDs->Clear();

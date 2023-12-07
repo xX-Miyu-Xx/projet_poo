@@ -82,9 +82,10 @@ namespace NS_Comp_Mappage
 
 		// Stats functions
 		System::String^ MoyennePanier(void);
-		System::String^ InsertStats(void);
-		System::String^ DeleteStats(void);
-		System::String^ UpdateStats(void);
+		System::String^ Chiffre_Daffaire_par_mois(void);
+		System::String^ Valeur_Commercial_Stock(void);
+		System::String^ reapprovisionnement_produit_sous_seuil(void);
+		System::String^ Article_moins_vendus(void);
 		void setStats(int, int, int, int, int, int);
 
 	};

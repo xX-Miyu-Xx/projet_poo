@@ -157,24 +157,29 @@ void NS_Comp_Mappage::CLmapTB::setStock(int id_stock, System::String^ produit_no
 
 
 // Stats functions
-System::String^ NS_Comp_Mappage::CLmapTB::MoyennePanier(void)
-{
-	return "SELECT AVG(SUM((a.montant_HT + a.Montant_TVA) * (1 - CASE WHEN a.remise_article LIKE '%%' THEN CAST(REPLACE(a.remise_article, '%', '') AS DECIMAL) / 100 ELSE 0 END))) AS panier_moyen FROM Commande c JOIN commande_article ca ON c.id_commande = ca.id_commande JOIN Articles a ON ca.id_article = a.id_article GROUP BY c.id_commande;";
+System::String^ NS_Comp_Mappage::CLmapTB::MoyennePanier(void) { 
+	return "SELECT AVG(panier_moyen) AS panier_moyen_avg FROM (SELECT SUM((a.montant_HT + a.Montant_TVA) * (1 - CASE WHEN a.remise_article LIKE '%%' THEN CAST(REPLACE(a.remise_article, '%', '') AS DECIMAL) / 100 ELSE 0 END)) AS panier_moyen FROM Commande c JOIN [Projet_POO].[dbo].[commande_article] ca ON c.id_commande = ca.id_commande JOIN [Projet_POO].[dbo].[Articles] a ON ca.id_article = a.id_article GROUP BY c.id_commande) AS subquery;"; 
 }
 
-System::String^ NS_Comp_Mappage::CLmapTB::InsertStats(void)
+
+System::String^ NS_Comp_Mappage::CLmapTB:: Chiffre_Daffaire_par_mois(void)
 {
-	return "INSERT INTO [Projet_POO].[dbo].[Stats] VALUES(1, 201, 10, 5, 3);";
+	return "SELECT SUM(montant_total) AS chiffre_affaires FROM (SELECT (a.montant_HT + a.Montant_TVA) * (1 - CASE WHEN a.remise_article LIKE '%%' THEN CAST(REPLACE(a.remise_article, '%', '') AS DECIMAL) / 100 ELSE 0 END) AS montant_total FROM Commande c JOIN [Projet_POO].[dbo].[commande_article] ca ON c.id_commande = ca.id_commande JOIN [Projet_POO].[dbo].[Articles] a ON ca.id_article = a.id_article WHERE MONTH(c.date_commande) = 1 AND YEAR(c.date_commande) = 2023) AS subquery;";
 }
 
-System::String^ NS_Comp_Mappage::CLmapTB::DeleteStats(void)
+System::String^ NS_Comp_Mappage::CLmapTB::Valeur_Commercial_Stock(void)
 {
-	return "DELETE FROM [Projet_POO].[dbo].[Stats] WHERE id_stat = " + this->id_stat + ";";
+	return "SELECT SUM(valeur_article_stock) AS valeur_commerciale_stock FROM (SELECT a.montant_HT * a.stock_produit AS valeur_article_stock FROM Articles a) AS subquery;";
 }
 
-System::String^ NS_Comp_Mappage::CLmapTB::UpdateStats(void)
+System::String^ NS_Comp_Mappage::CLmapTB::reapprovisionnement_produit_sous_seuil(void)
 {
-	return "UPDATE [Projet_POO].[dbo].[Stats] SET id_article = 2, id_personnel = 202, commandes_totales = 15, commandes_reussies = 8, commandes_echouees = 4 WHERE id_stat = " + this->id_stat + ";";
+	return "SELECT * FROM Articles WHERE stock_produit < [seuil_reapprovisionnement];";
+}
+
+System::String^ NS_Comp_Mappage::CLmapTB::Article_moins_vendus(void)
+{
+	return "SELECT TOP 10 a.id_article, COUNT(ca.id_article) AS nombre_de_ventes FROM Articles a LEFT JOIN [Projet_POO].[dbo].[commande_article] ca ON a.id_article = ca.id_article GROUP BY a.id_article ORDER BY nombre_de_ventes ASC;";
 }
 
 void NS_Comp_Mappage::CLmapTB::setStats(int id_stat, int id_article, int id_personnel, int commandes_totales, int commandes_reussies, int commandes_echouees)

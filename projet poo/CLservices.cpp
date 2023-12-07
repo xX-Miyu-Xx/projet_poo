@@ -87,3 +87,35 @@ System::Data::DataSet^ NS_Comp_Svc::CLservices::Moyenne_panier(System::String^ d
 	sql = this->oMappTB->MoyennePanier();
 	return this->oCad->getRows(sql, dataTableName);
 }
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Chiffre_daffaire_per_mois(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->Chiffre_Daffaire_par_mois();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Valeur_Commercial_Stocks(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->Valeur_Commercial_Stock();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::reapprovisionnement_produits_sous_seuil(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->reapprovisionnement_produit_sous_seuil();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Article_moins_vendus(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->Article_moins_vendus();
+	return this->oCad->getRows(sql, dataTableName);
+}
