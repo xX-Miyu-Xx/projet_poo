@@ -127,6 +127,67 @@ void NS_Comp_Mappage::CLmapTB::setCommande( int id_personnel, int id_commande, S
 
 
 
+//Adress functions
+System::String^ NS_Comp_Mappage::CLmapTB::SelectAdressesEtVilles(void)
+{
+	return "SELECT Adresse.*, Villes.nom_ville FROM [Projet_POO].[dbo].[Adresse] JOIN [Projet_POO].[dbo].[Villes] ON Adresse.id_ville = Villes.id_ville;";
+}
+
+System::String^ NS_Comp_Mappage::CLmapTB::SelectVilles(void)
+{
+	return "SELECT * FROM [Projet_POO].[dbo].[Villes];";
+}
+
+System::String^ NS_Comp_Mappage::CLmapTB::InsertAdresse(void)
+{
+	return "INSERT INTO [Projet_POO].[dbo].[Adresse] VALUES ("+this->id_adresse+", '"+this->rue_adress+"', "+this->code_postal+", "+this->numero_adresse+", "+this->id_ville+");";
+}
+
+System::String^ NS_Comp_Mappage::CLmapTB::InsertVille(void)
+{
+	return "INSERT INTO [Projet_POO].[dbo].[Villes] VALUES ("+this->id_ville+", '"+this->nom_ville+"');";
+}
+
+System::String^ NS_Comp_Mappage::CLmapTB::UpdateAdresse(void)
+{
+	return "UPDATE [Projet_POO].[dbo].[Adresse] SET rue_adresse = '"+this->rue_adress+"', code_postal = "+this->code_postal+", numero_adresse = "+this->numero_adresse+", id_ville = "+this->id_ville+" WHERE id_adresse = "+this->id_adresse+";";
+}
+
+System::String^ NS_Comp_Mappage::CLmapTB::UpdateVille(void)
+{
+	return "UPDATE [Projet_POO].[dbo].[Villes] SET nom_ville = '"+this->nom_ville+"' WHERE id_ville = "+this->id_ville+";";
+}
+
+System::String^ NS_Comp_Mappage::CLmapTB::DeleteAdresse(int id)
+{
+	return "DELETE FROM [Projet_POO].[dbo].[Adresse] WHERE id_adresse = " + id + ";";
+}
+
+System::String^ NS_Comp_Mappage::CLmapTB::DeleteVille(int id)
+{
+	return "DELETE FROM [Projet_POO].[dbo].[Villes] WHERE id_ville = " + id + ";";
+}
+
+
+void NS_Comp_Mappage::CLmapTB::setAdresse(int id_adresse, System::String^ rue_adress, int code_postal, int numero_adresse, int id_ville)
+{
+	this->id_adresse = id_adresse;
+	this->rue_adress = rue_adress;
+	this->code_postal = code_postal;
+	this->numero_adresse = numero_adresse;
+	this->id_ville = id_ville;
+}
+
+void NS_Comp_Mappage::CLmapTB::setVille(int id_ville, System::String^ nom_ville)
+{
+	this->id_ville = id_ville;
+	this->nom_ville = nom_ville;
+}
+
+
+
+
+
 
 
 // Stats functions

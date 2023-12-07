@@ -37,6 +37,16 @@ namespace NS_Comp_Svc
 		void modifierUnArticle(int, System::String^, System::String^, System::String^, int, int, int, System::String^, System::String^);
 		void supprimerUnArticle(int);
 
+		//Adress functions
+		System::Data::DataSet^ selectionnerAdressesEtVilles(System::String^);
+		System::Data::DataSet^ selectionnerVilles(System::String^);
+		void ajouterUneVileEtAdresse(int, System::String^,int, int, int);
+		void ajouterUneVille(int, System::String^);
+		void modifierUneVille(int, System::String^);
+		void modifierAdresse(int, System::String^, int, int, int);
+		void supprimerUneVille(int);
+		void supprimerUneAdresse(int);
+
 
 		// Statistiques functions
 		System::Data::DataSet^ Moyenne_panier(System::String^);

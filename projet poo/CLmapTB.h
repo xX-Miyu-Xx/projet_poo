@@ -39,6 +39,15 @@ namespace NS_Comp_Mappage
 		int articles_commande;
 
 
+		//Adress variables
+		int id_adresse;
+		System::String^ rue_adress;
+		int code_postal;
+		int numero_adresse;
+		System::String^ nom_ville;
+
+
+
 		// Stats variables
 		int id_stat;
 		int commandes_totales;
@@ -77,6 +86,18 @@ namespace NS_Comp_Mappage
 		System::String^ DeleteCommande(int);
 		System::String^ UpdateCommande(void);
 		void setCommande( int, int, System::String^, System::String^, System::String^, System::String^, System::String^, int, int);
+
+		//Adress functions
+		System::String^ SelectAdressesEtVilles(void);
+		System::String^ SelectVilles(void);
+		System::String^ InsertAdresse(void);
+		void setAdresse(int, System::String^, int, int, int);
+		System::String^ InsertVille(void);
+		void setVille(int, System::String^);
+		System::String^ UpdateVille(void);
+		System::String^ UpdateAdresse(void);
+		System::String^ DeleteVille(int);
+		System::String^ DeleteAdresse(int);
 
 		// Stats functions
 		System::String^ MoyennePanier(void);

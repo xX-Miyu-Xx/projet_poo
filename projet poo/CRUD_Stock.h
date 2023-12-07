@@ -136,6 +136,8 @@ namespace CRUD_Stock {
 			this->date_reapprovisionnement = (gcnew System::Windows::Forms::TextBox());
 			this->montant_tva = (gcnew System::Windows::Forms::TextBox());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->seuil_reapprovisionnement = (gcnew System::Windows::Forms::TextBox());
 			this->label = (gcnew System::Windows::Forms::Label());
 			this->cout_achat = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -156,8 +158,6 @@ namespace CRUD_Stock {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->seuil_reapprovisionnement = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_enr))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
 			this->splitContainer1->Panel1->SuspendLayout();
@@ -241,7 +241,7 @@ namespace CRUD_Stock {
 			this->remise_article->Margin = System::Windows::Forms::Padding(6);
 			this->remise_article->Name = L"remise_article";
 			this->remise_article->Size = System::Drawing::Size(610, 31);
-			this->remise_article->TabIndex = 13;
+			this->remise_article->TabIndex = 14;
 			// 
 			// stock_produit
 			// 
@@ -318,6 +318,24 @@ namespace CRUD_Stock {
 			this->splitContainer1->SplitterDistance = 1096;
 			this->splitContainer1->TabIndex = 13;
 			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(379, 471);
+			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(275, 25);
+			this->label11->TabIndex = 27;
+			this->label11->Text = L"Seuil Reapprovisionnement";
+			// 
+			// seuil_reapprovisionnement
+			// 
+			this->seuil_reapprovisionnement->Location = System::Drawing::Point(383, 500);
+			this->seuil_reapprovisionnement->Margin = System::Windows::Forms::Padding(6);
+			this->seuil_reapprovisionnement->Name = L"seuil_reapprovisionnement";
+			this->seuil_reapprovisionnement->Size = System::Drawing::Size(610, 31);
+			this->seuil_reapprovisionnement->TabIndex = 12;
+			// 
 			// label
 			// 
 			this->label->AutoSize = true;
@@ -352,7 +370,7 @@ namespace CRUD_Stock {
 			this->couleur_article->Margin = System::Windows::Forms::Padding(6);
 			this->couleur_article->Name = L"couleur_article";
 			this->couleur_article->Size = System::Drawing::Size(610, 31);
-			this->couleur_article->TabIndex = 12;
+			this->couleur_article->TabIndex = 13;
 			// 
 			// label10
 			// 
@@ -526,24 +544,6 @@ namespace CRUD_Stock {
 			this->label2->Size = System::Drawing::Size(114, 25);
 			this->label2->TabIndex = 14;
 			this->label2->Text = L"Navigation";
-			// 
-			// label11
-			// 
-			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(379, 471);
-			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(275, 25);
-			this->label11->TabIndex = 27;
-			this->label11->Text = L"Seuil Reapprovisionnement";
-			// 
-			// seuil_reapprovisionnement
-			// 
-			this->seuil_reapprovisionnement->Location = System::Drawing::Point(383, 500);
-			this->seuil_reapprovisionnement->Margin = System::Windows::Forms::Padding(6);
-			this->seuil_reapprovisionnement->Name = L"seuil_reapprovisionnement";
-			this->seuil_reapprovisionnement->Size = System::Drawing::Size(610, 31);
-			this->seuil_reapprovisionnement->TabIndex = 26;
 			// 
 			// CRUD_Stock
 			// 

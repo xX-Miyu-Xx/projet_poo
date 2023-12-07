@@ -151,6 +151,81 @@ void NS_Comp_Svc::CLservices::supprimerUnArticle(int id)
 	this->oCad->actionRows(sql);
 }
 
+//Adress functions
+System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerAdressesEtVilles(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->SelectAdressesEtVilles();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerVilles(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->SelectVilles();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+void NS_Comp_Svc::CLservices::ajouterUneVileEtAdresse(int id_adresse, System::String^ rue_adresse, int code_postal, int numero_adresse, int id_ville)
+{
+	System::String^ sql;
+
+	this->oMappTB->setAdresse(id_adresse, rue_adresse, code_postal, numero_adresse, id_ville);
+	sql = this->oMappTB->InsertAdresse();
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::ajouterUneVille(int id_ville, System::String^ nom_ville)
+{
+	System::String^ sql;
+
+	this->oMappTB->setVille(id_ville, nom_ville);
+	sql = this->oMappTB->InsertVille();
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::modifierUneVille(int id_ville, System::String^ nom_ville)
+{
+	System::String^ sql;
+
+	this->oMappTB->setVille(id_ville, nom_ville);
+	sql = this->oMappTB->UpdateVille();
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::modifierAdresse(int id_adresse, System::String^ rue_adresse, int code_postal, int numero_adresse, int id_ville)
+{
+	System::String^ sql;
+
+	this->oMappTB->setAdresse(id_adresse, rue_adresse, code_postal, numero_adresse, id_ville);
+	sql = this->oMappTB->UpdateAdresse();
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::supprimerUneVille(int id)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->DeleteVille(id);
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::supprimerUneAdresse(int id)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->DeleteAdresse(id);
+
+	this->oCad->actionRows(sql);
+}
+
 
 // Statistiques functions
 
