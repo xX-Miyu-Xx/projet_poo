@@ -99,25 +99,28 @@ namespace Login {
 			this->label1->BackColor = System::Drawing::SystemColors::ActiveBorder;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 10.875F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(139, 97);
+			this->label1->Location = System::Drawing::Point(93, 62);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(570, 39);
+			this->label1->Size = System::Drawing::Size(372, 26);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Please enter Your login and password";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(140, 173);
+			this->textBox1->Location = System::Drawing::Point(93, 111);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(568, 31);
+			this->textBox1->Size = System::Drawing::Size(380, 22);
 			this->textBox1->TabIndex = 1;
 			this->textBox1->Text = L"User";
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(140, 230);
+			this->textBox2->Location = System::Drawing::Point(93, 147);
+			this->textBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(568, 31);
+			this->textBox2->Size = System::Drawing::Size(380, 22);
 			this->textBox2->TabIndex = 2;
 			this->textBox2->Text = L"User";
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &Login::textBox2_TextChanged);
@@ -125,9 +128,10 @@ namespace Login {
 			// button1
 			// 
 			this->button1->BackColor = System::Drawing::SystemColors::MenuHighlight;
-			this->button1->Location = System::Drawing::Point(579, 304);
+			this->button1->Location = System::Drawing::Point(386, 195);
+			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(130, 51);
+			this->button1->Size = System::Drawing::Size(87, 33);
 			this->button1->TabIndex = 3;
 			this->button1->Text = L"Login";
 			this->button1->UseVisualStyleBackColor = false;
@@ -135,18 +139,20 @@ namespace Login {
 			// 
 			// Login
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveBorder;
-			this->ClientSize = System::Drawing::Size(840, 413);
+			this->ClientSize = System::Drawing::Size(565, 280);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
-			this->MaximumSize = System::Drawing::Size(866, 484);
-			this->MinimumSize = System::Drawing::Size(866, 484);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->MaximumSize = System::Drawing::Size(583, 327);
+			this->MinimumSize = System::Drawing::Size(583, 327);
 			this->Name = L"Login";
 			this->Text = L"Login";
+			this->Load += gcnew System::EventHandler(this, &Login::Login_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -183,7 +189,7 @@ namespace Login {
 			Pages["CRUD_Personnel"] = gcnew CRUD_Personnel::CRUD_Personnel(utilisateur, Pages);
 			Pages["CRUD_Commandes"] = gcnew CRUD_Commandes::CRUD_Commandes(utilisateur, Pages);
 			Pages["CRUD_Stock"] = gcnew CRUD_Stock::CRUD_Stock(utilisateur, Pages);
-			Pages["Statistiques"] = gcnew Statistiques::Statistiques();
+			Pages["Statistiques"] = gcnew Statistiques::Statistiques(utilisateur, Pages);
 			this->setIsLogged(true);
 
 			// Afficher le formulaire MyForm
@@ -200,5 +206,7 @@ namespace Login {
 	}																	
 
 
+private: System::Void Login_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

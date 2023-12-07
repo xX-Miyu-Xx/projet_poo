@@ -1,0 +1,8 @@
+C:\Users\orfal\Source\Repos\xX-Miyu-Xx\projet_poo\projet poo\Debug\projet poo.vcxproj.AssemblyReference.cache
+C:\Users\orfal\Source\Repos\xX-Miyu-Xx\projet_poo\projet poo\Debug\projetpoo.CRUD_CLient.resources
+C:\Users\orfal\Source\Repos\xX-Miyu-Xx\projet_poo\projet poo\Debug\projetpoo.CRUD_Commandes.resources
+C:\Users\orfal\Source\Repos\xX-Miyu-Xx\projet_poo\projet poo\Debug\projetpoo.CRUD_Personnel.resources
+C:\Users\orfal\Source\Repos\xX-Miyu-Xx\projet_poo\projet poo\Debug\projetpoo.CRUD_Stock.resources
+C:\Users\orfal\Source\Repos\xX-Miyu-Xx\projet_poo\projet poo\Debug\projetpoo.Login.resources
+C:\Users\orfal\Source\Repos\xX-Miyu-Xx\projet_poo\projet poo\Debug\projetpoo.UsersPage.resources
+C:\Users\orfal\Source\Repos\xX-Miyu-Xx\projet_poo\projet poo\Debug\projet poo.vcxproj.GenerateResource.cache

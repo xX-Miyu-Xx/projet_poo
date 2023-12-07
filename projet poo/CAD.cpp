@@ -1,10 +1,10 @@
-//CAD.CPP**************************************************************************************
+	//CAD.CPP**************************************************************************************
 #include "CAD.h"
 
 
 NS_Comp_Data::CLcad::CLcad(void)
 {
-	this->sCnx = "Data Source=DESKTOP-RD7IRCU;Integrated Security=True;Encrypt=False;";
+	this->sCnx = "Data Source=DESKTOP-MELO;Initial Catalog=Projet_POO;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
 
 	this->sSql = "Rien";
 
@@ -21,7 +21,7 @@ System::Data::DataSet^ NS_Comp_Data::CLcad::getRows(System::String^ sSql, System
 	this->sSql = sSql;
 	this->oCmd->CommandText = this->sSql;
 	this->oDA->SelectCommand = this->oCmd;
-	this->oDA->Fill(this->oDs, sDataTableName);
+	;	this->oDA->Fill(this->oDs, sDataTableName);
 
 	return this->oDs;
 }

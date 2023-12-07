@@ -77,3 +77,13 @@ void NS_Comp_Svc::CLservices::supprimerUneCommande(int id)
 
 	this->oCad->actionRows(sql);
 }
+
+// Statistiques functions
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Moyenne_panier(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->MoyennePanier();
+	return this->oCad->getRows(sql, dataTableName);
+}

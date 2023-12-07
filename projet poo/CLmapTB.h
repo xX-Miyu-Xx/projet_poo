@@ -81,7 +81,7 @@ namespace NS_Comp_Mappage
 		void setStock(int, System::String^, int, System::String^, int, System::String^);
 
 		// Stats functions
-		System::String^ SelectStats(void);
+		System::String^ MoyennePanier(void);
 		System::String^ InsertStats(void);
 		System::String^ DeleteStats(void);
 		System::String^ UpdateStats(void);

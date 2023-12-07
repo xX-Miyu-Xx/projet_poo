@@ -157,9 +157,9 @@ void NS_Comp_Mappage::CLmapTB::setStock(int id_stock, System::String^ produit_no
 
 
 // Stats functions
-System::String^ NS_Comp_Mappage::CLmapTB::SelectStats(void)
+System::String^ NS_Comp_Mappage::CLmapTB::MoyennePanier(void)
 {
-	return "SELECT * FROM [Projet_POO].[dbo].[Stats]";
+	return "SELECT AVG(SUM((a.montant_HT + a.Montant_TVA) * (1 - CASE WHEN a.remise_article LIKE '%%' THEN CAST(REPLACE(a.remise_article, '%', '') AS DECIMAL) / 100 ELSE 0 END))) AS panier_moyen FROM Commande c JOIN commande_article ca ON c.id_commande = ca.id_commande JOIN Articles a ON ca.id_article = a.id_article GROUP BY c.id_commande;";
 }
 
 System::String^ NS_Comp_Mappage::CLmapTB::InsertStats(void)

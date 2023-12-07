@@ -25,6 +25,7 @@ namespace NS_Comp_Svc
 		void modifierUneCommande(int, int, System::String^, System::String^, System::String^, System::String^, System::String^, int);
 		void supprimerUneCommande(int);
 
-
+		// Statistiques functions
+		System::Data::DataSet^ Moyenne_panier(System::String^);
 	};
 }
