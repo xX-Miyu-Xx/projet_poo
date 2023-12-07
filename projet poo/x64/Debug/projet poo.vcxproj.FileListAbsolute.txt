@@ -7,3 +7,4 @@ C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.CRUD_Perso
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.CRUD_Stock.resources
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.CRUD_Commandes.resources
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.Adress_Gestion.resources
+C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.Statistiques.resources

@@ -92,7 +92,8 @@ namespace CRUD_Commandes {
 	private: System::Windows::Forms::Label^ label12;
 	private: System::Windows::Forms::TextBox^ id_client;
 	private: System::Windows::Forms::Label^ label11;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ articles_commande;
+
 	private: System::Windows::Forms::Button^ button7;
 
 
@@ -127,7 +128,7 @@ namespace CRUD_Commandes {
 			this->date_livraison = (gcnew System::Windows::Forms::TextBox());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
 			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->articles_commande = (gcnew System::Windows::Forms::TextBox());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->id_client = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -268,7 +269,7 @@ namespace CRUD_Commandes {
 			// 
 			this->splitContainer1->Panel1->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->splitContainer1->Panel1->Controls->Add(this->label11);
-			this->splitContainer1->Panel1->Controls->Add(this->textBox1);
+			this->splitContainer1->Panel1->Controls->Add(this->articles_commande);
 			this->splitContainer1->Panel1->Controls->Add(this->label12);
 			this->splitContainer1->Panel1->Controls->Add(this->id_client);
 			this->splitContainer1->Panel1->Controls->Add(this->label8);
@@ -317,13 +318,13 @@ namespace CRUD_Commandes {
 			this->label11->TabIndex = 30;
 			this->label11->Text = L"Articles de la commande";
 			// 
-			// textBox1
+			// articles_commande
 			// 
-			this->textBox1->Location = System::Drawing::Point(390, 644);
-			this->textBox1->Margin = System::Windows::Forms::Padding(6);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(610, 31);
-			this->textBox1->TabIndex = 29;
+			this->articles_commande->Location = System::Drawing::Point(390, 644);
+			this->articles_commande->Margin = System::Windows::Forms::Padding(6);
+			this->articles_commande->Name = L"articles_commande";
+			this->articles_commande->Size = System::Drawing::Size(610, 31);
+			this->articles_commande->TabIndex = 29;
 			// 
 			// label12
 			// 
@@ -567,14 +568,14 @@ namespace CRUD_Commandes {
 	}
 	private: System::Void btn_insert_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oSvc->ajouterUneCommande(System::Convert::ToInt32(this->id_personnel->Text), System::Convert::ToInt32(this->id_commande->Text), this->date_livraison->Text, this->date_commande->Text, this->date_payement->Text, this->date_solde->Text, this->moyen_payement->Text, System::Convert::ToInt32(this->id_client->Text));
+		this->oSvc->ajouterUneCommande(System::Convert::ToInt32(this->id_personnel->Text), System::Convert::ToInt32(this->id_commande->Text), this->date_livraison->Text, this->date_commande->Text, this->date_payement->Text, this->date_solde->Text, this->moyen_payement->Text, System::Convert::ToInt32(this->id_client->Text), System::Convert::ToInt32(this->articles_commande->Text));
 		this->dgv_enr->Refresh();
 		this->oDs = this->oSvc->selectionnerLaTableCommande("Rsl");
 		this->dgv_enr->DataSource = this->oDs;
 		this->dgv_enr->DataMember = "Rsl";
 	}
 	private: System::Void btn_update_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oSvc->modifierUneCommande(System::Convert::ToInt32(this->id_personnel->Text), System::Convert::ToInt32(this->id_commande->Text), this->date_livraison->Text, this->date_commande->Text, this->date_payement->Text, this->date_solde->Text, this->moyen_payement->Text, System::Convert::ToInt32(this->id_client->Text));
+		this->oSvc->modifierUneCommande(System::Convert::ToInt32(this->id_personnel->Text), System::Convert::ToInt32(this->id_commande->Text), this->date_livraison->Text, this->date_commande->Text, this->date_payement->Text, this->date_solde->Text, this->moyen_payement->Text, System::Convert::ToInt32(this->id_client->Text), System::Convert::ToInt32(this->articles_commande->Text));
 		this->dgv_enr->Refresh();
 		this->oDs = this->oSvc->selectionnerLaTableCommande("Rsl");
 		this->dgv_enr->DataSource = this->oDs;

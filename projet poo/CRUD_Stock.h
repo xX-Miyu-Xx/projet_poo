@@ -100,6 +100,12 @@ namespace CRUD_Stock {
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::TextBox^ couleur_article;
 	private: System::Windows::Forms::Button^ button7;
+	private: System::Windows::Forms::Label^ label;
+	private: System::Windows::Forms::TextBox^ cout_achat;
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::TextBox^ seuil_reapprovisionnement;
+
+
 
 
 
@@ -130,6 +136,8 @@ namespace CRUD_Stock {
 			this->date_reapprovisionnement = (gcnew System::Windows::Forms::TextBox());
 			this->montant_tva = (gcnew System::Windows::Forms::TextBox());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
+			this->label = (gcnew System::Windows::Forms::Label());
+			this->cout_achat = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->couleur_article = (gcnew System::Windows::Forms::TextBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
@@ -148,6 +156,8 @@ namespace CRUD_Stock {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->seuil_reapprovisionnement = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_enr))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
 			this->splitContainer1->Panel1->SuspendLayout();
@@ -211,7 +221,7 @@ namespace CRUD_Stock {
 			// 
 			// montant_ht
 			// 
-			this->montant_ht->Location = System::Drawing::Point(383, 223);
+			this->montant_ht->Location = System::Drawing::Point(383, 170);
 			this->montant_ht->Margin = System::Windows::Forms::Padding(6);
 			this->montant_ht->Name = L"montant_ht";
 			this->montant_ht->Size = System::Drawing::Size(610, 31);
@@ -219,7 +229,7 @@ namespace CRUD_Stock {
 			// 
 			// id_article
 			// 
-			this->id_article->Location = System::Drawing::Point(383, 155);
+			this->id_article->Location = System::Drawing::Point(383, 102);
 			this->id_article->Margin = System::Windows::Forms::Padding(6);
 			this->id_article->Name = L"id_article";
 			this->id_article->Size = System::Drawing::Size(610, 31);
@@ -227,24 +237,24 @@ namespace CRUD_Stock {
 			// 
 			// remise_article
 			// 
-			this->remise_article->Location = System::Drawing::Point(383, 569);
+			this->remise_article->Location = System::Drawing::Point(382, 631);
 			this->remise_article->Margin = System::Windows::Forms::Padding(6);
 			this->remise_article->Name = L"remise_article";
 			this->remise_article->Size = System::Drawing::Size(610, 31);
-			this->remise_article->TabIndex = 12;
+			this->remise_article->TabIndex = 13;
 			// 
 			// stock_produit
 			// 
-			this->stock_produit->Location = System::Drawing::Point(382, 429);
+			this->stock_produit->Location = System::Drawing::Point(382, 435);
 			this->stock_produit->Margin = System::Windows::Forms::Padding(6);
 			this->stock_produit->Name = L"stock_produit";
 			this->stock_produit->Size = System::Drawing::Size(610, 31);
-			this->stock_produit->TabIndex = 10;
+			this->stock_produit->TabIndex = 11;
 			this->stock_produit->TextChanged += gcnew System::EventHandler(this, &CRUD_Stock::adresse_livraison_client_TextChanged);
 			// 
 			// date_reapprovisionnement
 			// 
-			this->date_reapprovisionnement->Location = System::Drawing::Point(383, 361);
+			this->date_reapprovisionnement->Location = System::Drawing::Point(383, 308);
 			this->date_reapprovisionnement->Margin = System::Windows::Forms::Padding(6);
 			this->date_reapprovisionnement->Name = L"date_reapprovisionnement";
 			this->date_reapprovisionnement->Size = System::Drawing::Size(610, 31);
@@ -252,7 +262,7 @@ namespace CRUD_Stock {
 			// 
 			// montant_tva
 			// 
-			this->montant_tva->Location = System::Drawing::Point(383, 291);
+			this->montant_tva->Location = System::Drawing::Point(383, 238);
 			this->montant_tva->Margin = System::Windows::Forms::Padding(6);
 			this->montant_tva->Name = L"montant_tva";
 			this->montant_tva->Size = System::Drawing::Size(610, 31);
@@ -268,6 +278,10 @@ namespace CRUD_Stock {
 			// splitContainer1.Panel1
 			// 
 			this->splitContainer1->Panel1->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->splitContainer1->Panel1->Controls->Add(this->label11);
+			this->splitContainer1->Panel1->Controls->Add(this->seuil_reapprovisionnement);
+			this->splitContainer1->Panel1->Controls->Add(this->label);
+			this->splitContainer1->Panel1->Controls->Add(this->cout_achat);
 			this->splitContainer1->Panel1->Controls->Add(this->label8);
 			this->splitContainer1->Panel1->Controls->Add(this->couleur_article);
 			this->splitContainer1->Panel1->Controls->Add(this->label10);
@@ -304,10 +318,28 @@ namespace CRUD_Stock {
 			this->splitContainer1->SplitterDistance = 1096;
 			this->splitContainer1->TabIndex = 13;
 			// 
+			// label
+			// 
+			this->label->AutoSize = true;
+			this->label->Location = System::Drawing::Point(378, 342);
+			this->label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label->Name = L"label";
+			this->label->Size = System::Drawing::Size(118, 25);
+			this->label->TabIndex = 25;
+			this->label->Text = L"Cout Achat";
+			// 
+			// cout_achat
+			// 
+			this->cout_achat->Location = System::Drawing::Point(382, 371);
+			this->cout_achat->Margin = System::Windows::Forms::Padding(6);
+			this->cout_achat->Name = L"cout_achat";
+			this->cout_achat->Size = System::Drawing::Size(610, 31);
+			this->cout_achat->TabIndex = 10;
+			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(381, 470);
+			this->label8->Location = System::Drawing::Point(380, 537);
 			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(153, 25);
@@ -316,11 +348,11 @@ namespace CRUD_Stock {
 			// 
 			// couleur_article
 			// 
-			this->couleur_article->Location = System::Drawing::Point(385, 500);
+			this->couleur_article->Location = System::Drawing::Point(384, 567);
 			this->couleur_article->Margin = System::Windows::Forms::Padding(6);
 			this->couleur_article->Name = L"couleur_article";
 			this->couleur_article->Size = System::Drawing::Size(610, 31);
-			this->couleur_article->TabIndex = 11;
+			this->couleur_article->TabIndex = 12;
 			// 
 			// label10
 			// 
@@ -334,7 +366,7 @@ namespace CRUD_Stock {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(379, 192);
+			this->label9->Location = System::Drawing::Point(379, 139);
 			this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(124, 25);
@@ -344,7 +376,7 @@ namespace CRUD_Stock {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(377, 126);
+			this->label7->Location = System::Drawing::Point(377, 73);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(95, 25);
@@ -354,7 +386,7 @@ namespace CRUD_Stock {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(379, 260);
+			this->label6->Location = System::Drawing::Point(379, 207);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(137, 25);
@@ -365,7 +397,7 @@ namespace CRUD_Stock {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(379, 331);
+			this->label5->Location = System::Drawing::Point(379, 278);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(302, 25);
@@ -375,7 +407,7 @@ namespace CRUD_Stock {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(378, 400);
+			this->label4->Location = System::Drawing::Point(378, 406);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(140, 25);
@@ -386,7 +418,7 @@ namespace CRUD_Stock {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(379, 538);
+			this->label3->Location = System::Drawing::Point(378, 605);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(150, 25);
@@ -410,7 +442,7 @@ namespace CRUD_Stock {
 			this->button7->Margin = System::Windows::Forms::Padding(4);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(550, 77);
-			this->button7->TabIndex = 22;
+			this->button7->TabIndex = 20;
 			this->button7->Text = L"Gestion d\'Adresse";
 			this->button7->UseVisualStyleBackColor = false;
 			this->button7->Click += gcnew System::EventHandler(this, &CRUD_Stock::button7_Click);
@@ -421,7 +453,7 @@ namespace CRUD_Stock {
 			this->button6->Margin = System::Windows::Forms::Padding(4);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(550, 77);
-			this->button6->TabIndex = 20;
+			this->button6->TabIndex = 21;
 			this->button6->Text = L"Page Utilisateur";
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &CRUD_Stock::button6_Click);
@@ -495,6 +527,24 @@ namespace CRUD_Stock {
 			this->label2->TabIndex = 14;
 			this->label2->Text = L"Navigation";
 			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(379, 471);
+			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(275, 25);
+			this->label11->TabIndex = 27;
+			this->label11->Text = L"Seuil Reapprovisionnement";
+			// 
+			// seuil_reapprovisionnement
+			// 
+			this->seuil_reapprovisionnement->Location = System::Drawing::Point(383, 500);
+			this->seuil_reapprovisionnement->Margin = System::Windows::Forms::Padding(6);
+			this->seuil_reapprovisionnement->Name = L"seuil_reapprovisionnement";
+			this->seuil_reapprovisionnement->Size = System::Drawing::Size(610, 31);
+			this->seuil_reapprovisionnement->TabIndex = 26;
+			// 
 			// CRUD_Stock
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
@@ -531,7 +581,7 @@ namespace CRUD_Stock {
 	}
 	private: System::Void btn_insert_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oSvc->ajouterUnArticle(System::Convert::ToInt32(this->id_article->Text), this->montant_ht->Text, this->montant_tva->Text, this->date_reapprovisionnement->Text, System::Convert::ToInt32(this->stock_produit->Text), this->couleur_article->Text, this->remise_article->Text);
+		this->oSvc->ajouterUnArticle(System::Convert::ToInt32(this->id_article->Text), this->montant_ht->Text, this->montant_tva->Text, this->date_reapprovisionnement->Text, System::Convert::ToInt32(this->cout_achat->Text), System::Convert::ToInt32(this->stock_produit->Text), System::Convert::ToInt32(this->seuil_reapprovisionnement->Text), this->couleur_article->Text, this->remise_article->Text);
 		this->dgv_enr->Refresh();
 		this->oDs = this->oSvc->selectionnerLaTableArticles("Rsl");
 		this->dgv_enr->DataSource = this->oDs;
@@ -539,7 +589,7 @@ namespace CRUD_Stock {
 	}
 	private: System::Void btn_update_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		this->oSvc->modifierUnArticle(System::Convert::ToInt32(this->id_article->Text), this->montant_ht->Text, this->montant_tva->Text, this->date_reapprovisionnement->Text, System::Convert::ToInt32(this->stock_produit->Text), this->couleur_article->Text, this->remise_article->Text);
+		this->oSvc->modifierUnArticle(System::Convert::ToInt32(this->id_article->Text), this->montant_ht->Text, this->montant_tva->Text, this->date_reapprovisionnement->Text, System::Convert::ToInt32(this->cout_achat->Text), System::Convert::ToInt32(this->stock_produit->Text), System::Convert::ToInt32(this->seuil_reapprovisionnement->Text), this->couleur_article->Text, this->remise_article->Text);
 		this->dgv_enr->Refresh();
 		this->oDs = this->oSvc->selectionnerLaTableArticles("Rsl");
 		this->dgv_enr->DataSource = this->oDs;

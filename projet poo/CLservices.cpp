@@ -51,20 +51,20 @@ System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerLaTableCommande(Syst
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-void NS_Comp_Svc::CLservices::ajouterUneCommande( int id_personnel, int id_commande, System::String^ date_livraison, System::String^ date_commande, System::String^ date_payement, System::String^ date_solde, System::String^ moyen_payement, int id_client)
+void NS_Comp_Svc::CLservices::ajouterUneCommande( int id_personnel, int id_commande, System::String^ date_livraison, System::String^ date_commande, System::String^ date_payement, System::String^ date_solde, System::String^ moyen_payement, int id_client, int articles_commande)
 {
 	System::String^ sql;
 
-	this->oMappTB->setCommande( id_personnel, id_commande, date_livraison, date_commande, date_payement, moyen_payement, date_solde, id_client);
+	this->oMappTB->setCommande( id_personnel, id_commande, date_livraison, date_commande, date_payement, moyen_payement, date_solde, id_client, articles_commande);
 	sql = this->oMappTB->InsertCommande();
 
 	this->oCad->actionRows(sql);
 }
-void NS_Comp_Svc::CLservices::modifierUneCommande( int id_personnel, int id_commande, System::String^ date_livraison, System::String^ date_commande, System::String^ date_payement, System::String^ date_solde, System::String^ moyen_payement, int id_client)
+void NS_Comp_Svc::CLservices::modifierUneCommande( int id_personnel, int id_commande, System::String^ date_livraison, System::String^ date_commande, System::String^ date_payement, System::String^ date_solde, System::String^ moyen_payement, int id_client, int articles_commande)
 {
 	System::String^ sql;
 
-	this->oMappTB->setCommande( id_personnel, id_commande, date_livraison, date_commande, date_payement, moyen_payement, date_solde, id_client);
+	this->oMappTB->setCommande( id_personnel, id_commande, date_livraison, date_commande, date_payement, moyen_payement, date_solde, id_client, articles_commande);
 	sql = this->oMappTB->UpdateCommande();
 
 	this->oCad->actionRows(sql);
@@ -123,21 +123,21 @@ System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerLaTableArticles(Syst
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-void NS_Comp_Svc::CLservices::ajouterUnArticle(int id_article , System::String^ montant_ht, System::String^ montant_tva, System::String^ reapprovisionnement_article, int stock_produit, System::String^ couleur_article, System::String^ remise_article)
+void NS_Comp_Svc::CLservices::ajouterUnArticle(int id_article , System::String^ montant_ht, System::String^ montant_tva, System::String^ reapprovisionnement_article, int cout_achat, int stock_produit, int seuil_reapprovisionnement, System::String^ couleur_article, System::String^ remise_article)
 {
 	System::String^ sql;
 
-	this->oMappTB->setArticle(id_article, montant_ht, montant_tva, reapprovisionnement_article, stock_produit, couleur_article, remise_article);
+	this->oMappTB->setArticle(id_article, montant_ht, montant_tva, reapprovisionnement_article, cout_achat, stock_produit, seuil_reapprovisionnement, couleur_article, remise_article);
 	sql = this->oMappTB->InsertArticle();
 
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc::CLservices::modifierUnArticle(int id_article, System::String^ montant_ht, System::String^ montant_tva, System::String^ reapprovisionnement_article, int stock_produit, System::String^ couleur_article, System::String^ remise_article)
+void NS_Comp_Svc::CLservices::modifierUnArticle(int id_article, System::String^ montant_ht, System::String^ montant_tva, System::String^ reapprovisionnement_article, int cout_achat, int stock_produit, int seuil_reapprovisionnement, System::String^ couleur_article, System::String^ remise_article)
 {
 	System::String^ sql;
 
-	this->oMappTB->setArticle(id_article, montant_ht, montant_tva, reapprovisionnement_article, stock_produit, couleur_article, remise_article);
+	this->oMappTB->setArticle(id_article, montant_ht, montant_tva, reapprovisionnement_article, cout_achat, stock_produit, seuil_reapprovisionnement, couleur_article, remise_article);
 	sql = this->oMappTB->UpdateArticle();
 	this->oCad->actionRows(sql);
 }
@@ -149,4 +149,78 @@ void NS_Comp_Svc::CLservices::supprimerUnArticle(int id)
 	sql = this->oMappTB->DeleteArticle(id);
 
 	this->oCad->actionRows(sql);
+}
+
+
+// Statistiques functions
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Moyenne_panier(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->MoyennePanier();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Montant_total_client(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->MontantTotalClient();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Val_Commerciale_Stock(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->ValCommercialeStock();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Val_Commerciale_Achat(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->ValCommercialeAchat();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Top_10_Articles(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->Top10Articles();
+	return this->oCad->getRows(sql, dataTableName);
+}
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Chiffre_daffaire_per_mois(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->Chiffre_Daffaire_par_mois();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Valeur_Commercial_Stocks(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->Valeur_Commercial_Stock();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::reapprovisionnement_produits_sous_seuil(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->reapprovisionnement_produit_sous_seuil();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Article_moins_vendus(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->Article_moins_vendus();
+	return this->oCad->getRows(sql, dataTableName);
 }

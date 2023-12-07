@@ -567,18 +567,8 @@ namespace Adress_Gestion {
 	}
 	private: System::Void btn_insert_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oSvc->ajouterUneCommande(System::Convert::ToInt32(this->id_personnel->Text), System::Convert::ToInt32(this->id_commande->Text), this->date_livraison->Text, this->date_commande->Text, this->date_payement->Text, this->date_solde->Text, this->moyen_payement->Text, System::Convert::ToInt32(this->id_client->Text));
-		this->dgv_enr->Refresh();
-		this->oDs = this->oSvc->selectionnerLaTableCommande("Rsl");
-		this->dgv_enr->DataSource = this->oDs;
-		this->dgv_enr->DataMember = "Rsl";
 	}
 	private: System::Void btn_update_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oSvc->modifierUneCommande(System::Convert::ToInt32(this->id_personnel->Text), System::Convert::ToInt32(this->id_commande->Text), this->date_livraison->Text, this->date_commande->Text, this->date_payement->Text, this->date_solde->Text, this->moyen_payement->Text, System::Convert::ToInt32(this->id_client->Text));
-		this->dgv_enr->Refresh();
-		this->oDs = this->oSvc->selectionnerLaTableCommande("Rsl");
-		this->dgv_enr->DataSource = this->oDs;
-		this->dgv_enr->DataMember = "Rsl";
 	}
 
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {

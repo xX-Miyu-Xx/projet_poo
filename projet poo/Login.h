@@ -64,14 +64,14 @@ namespace Login {
 	private: bool IsLogged;
 
 	public:
-		 bool getIsLogged(){
+		bool getIsLogged() {
 			return IsLogged;
-		 }
+		}
 
-		 // Méthode setter
-		 void setIsLogged(bool var) {
-			 IsLogged = var;
-		 }
+		// Méthode setter
+		void setIsLogged(bool var) {
+			IsLogged = var;
+		}
 
 	protected:
 
@@ -79,7 +79,7 @@ namespace Login {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -112,7 +112,7 @@ namespace Login {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(568, 31);
 			this->textBox1->TabIndex = 1;
-			this->textBox1->Text = L"User";
+			this->textBox1->Text = L"Admin";
 			// 
 			// textBox2
 			// 
@@ -120,7 +120,7 @@ namespace Login {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(568, 31);
 			this->textBox2->TabIndex = 2;
-			this->textBox2->Text = L"User";
+			this->textBox2->Text = L"Admin";
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &Login::textBox2_TextChanged);
 			// 
 			// button1
@@ -163,9 +163,9 @@ namespace Login {
 		if (enteredLogin == "User" && enteredPassword == "User") {																						// a changer avec la bdd
 			// Attribuer a la variable utilisateur, la personne qui s'est identifie pour pouvoir y acceder par la suite
 			utilisateur = gcnew Utilisateur("Mark", 1, "Vassilenko", "user");
-				
+
 			// Créer une instance du formulaire MyForm
-			Pages["UsersPage"] = gcnew UsersPage::UsersPage(utilisateur,Pages);
+			Pages["UsersPage"] = gcnew UsersPage::UsersPage(utilisateur, Pages);
 			this->setIsLogged(true);
 
 			// Afficher le formulaire MyForm
@@ -184,7 +184,7 @@ namespace Login {
 			Pages["CRUD_Personnel"] = gcnew CRUD_Personnel::CRUD_Personnel(utilisateur, Pages);
 			Pages["CRUD_Commandes"] = gcnew CRUD_Commandes::CRUD_Commandes(utilisateur, Pages);
 			Pages["CRUD_Stock"] = gcnew CRUD_Stock::CRUD_Stock(utilisateur, Pages);
-			Pages["Statistiques"] = gcnew Statistiques::Statistiques();
+			Pages["Statistiques"] = gcnew Statistiques::Statistiques(utilisateur, Pages);
 			Pages["Adress_Gestion"] = gcnew Adress_Gestion::Adress_Gestion(utilisateur, Pages);
 			this->setIsLogged(true);
 
@@ -199,8 +199,8 @@ namespace Login {
 			MessageBox::Show("Invalid login or password. Please try again.", "Login Failed", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			this->setIsLogged(false);
 		}																																			// jusqu'ici
-	}																	
+	}
 
 
-};
+	};
 }

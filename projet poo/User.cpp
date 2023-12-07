@@ -5,18 +5,18 @@ Utilisateur::Utilisateur(String^ nom, int id, String^ prenom, String^ typeUtilis
     : nom(nom), id(id), prenom(prenom), typeUtilisateur(typeUtilisateur) {}
 
 // Méthodes pour accéder aux membres privés
-String^ Utilisateur::getNom()  {
+String^ Utilisateur::getNom() {
     return nom;
 }
 
-int Utilisateur::getID()  {
+int Utilisateur::getID() {
     return id;
 }
 
-String^ Utilisateur::getPrenom()  {
+String^ Utilisateur::getPrenom() {
     return prenom;
 }
 
-String^ Utilisateur::getTypeUtilisateur()  {
+String^ Utilisateur::getTypeUtilisateur() {
     return typeUtilisateur;
 }

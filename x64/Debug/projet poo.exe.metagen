@@ -4,6 +4,7 @@
   projetpoo.CRUD_Personnel.resources - Embedded, ContainedInManifestFile, 
   projetpoo.CRUD_Stock.resources - Embedded, ContainedInManifestFile, 
   projetpoo.Login.resources - Embedded, ContainedInManifestFile, 
+  projetpoo.Statistiques.resources - Embedded, ContainedInManifestFile, 
   projetpoo.UsersPage.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly projet poo, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
@@ -47,7 +48,7 @@ Class UsersPage.UsersPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Statistiques.Statistiques: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Login.Login: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

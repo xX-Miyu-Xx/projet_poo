@@ -1,4 +1,4 @@
-//CAD.CPP**************************************************************************************
+﻿//CAD.CPP**************************************************************************************
 #include "CAD.h"
 
 
@@ -17,14 +17,16 @@ NS_Comp_Data::CLcad::CLcad(void)
 }
 System::Data::DataSet^ NS_Comp_Data::CLcad::getRows(System::String^ sSql, System::String^ sDataTableName)
 {
-	this->oDs->Clear();
-	this->sSql = sSql;
-	this->oCmd->CommandText = this->sSql;
-	this->oDA->SelectCommand = this->oCmd;
-	this->oDA->Fill(this->oDs, sDataTableName);
+    System::Data::DataSet^ newDataSet = gcnew System::Data::DataSet(); 
 
-	return this->oDs;
-}
+    this->sSql = sSql;
+    this->oCmd->CommandText = this->sSql;
+    this->oDA->SelectCommand = this->oCmd;
+    this->oDA->Fill(newDataSet, sDataTableName);
+
+    return newDataSet;
+}	
+
 void NS_Comp_Data::CLcad::actionRows(System::String^ sSql)
 {
 	this->sSql = sSql;

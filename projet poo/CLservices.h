@@ -21,8 +21,8 @@ namespace NS_Comp_Svc
 
 		// Commande functions
 		System::Data::DataSet^ selectionnerLaTableCommande(System::String^);
-		void ajouterUneCommande(int, int, System::String^, System::String^, System::String^, System::String^, System::String^, int );
-		void modifierUneCommande(int, int, System::String^, System::String^, System::String^, System::String^, System::String^, int);
+		void ajouterUneCommande(int, int, System::String^, System::String^, System::String^, System::String^, System::String^, int ,int);
+		void modifierUneCommande(int, int, System::String^, System::String^, System::String^, System::String^, System::String^, int, int);
 		void supprimerUneCommande(int);
 
 		// Client functions
@@ -33,9 +33,20 @@ namespace NS_Comp_Svc
 
 		// Article functions
 		System::Data::DataSet^ selectionnerLaTableArticles(System::String^);
-		void ajouterUnArticle(int, System::String^, System::String^, System::String^, int, System::String^, System::String^);
-		void modifierUnArticle(int, System::String^, System::String^, System::String^, int, System::String^, System::String^);
+		void ajouterUnArticle(int, System::String^, System::String^, System::String^, int, int, int, System::String^, System::String^);
+		void modifierUnArticle(int, System::String^, System::String^, System::String^, int, int, int, System::String^, System::String^);
 		void supprimerUnArticle(int);
 
+
+		// Statistiques functions
+		System::Data::DataSet^ Moyenne_panier(System::String^);
+		System::Data::DataSet^ Montant_total_client(System::String^);
+		System::Data::DataSet^ Val_Commerciale_Stock(System::String^);
+		System::Data::DataSet^ Val_Commerciale_Achat(System::String^);
+		System::Data::DataSet^ Top_10_Articles(System::String^);
+		System::Data::DataSet^ Chiffre_daffaire_per_mois(System::String^);
+		System::Data::DataSet^ Valeur_Commercial_Stocks(System::String^);
+		System::Data::DataSet^ reapprovisionnement_produits_sous_seuil(System::String^);
+		System::Data::DataSet^ Article_moins_vendus(System::String^);
 	};
 }

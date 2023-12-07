@@ -14,11 +14,11 @@ public:
     Utilisateur(String^ nom, int id, String^ prenom, String^ typeUtilisateur);
 
     // Méthodes pour accéder aux membres privés
-    String^ getNom() ;
+    String^ getNom();
 
-    int getID() ;
+    int getID();
 
-    String^ getPrenom() ;
+    String^ getPrenom();
 
-    String^ getTypeUtilisateur() ;
+    String^ getTypeUtilisateur();
 };

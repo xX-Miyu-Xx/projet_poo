@@ -36,6 +36,7 @@ namespace NS_Comp_Mappage
 		System::String^ moyen_payement;
 		System::String^ prix_commande;
 		int id_ville;
+		int articles_commande;
 
 
 		// Stats variables
@@ -49,7 +50,9 @@ namespace NS_Comp_Mappage
 		System::String^ montant_ht;
 		System::String^ montant_tva;
 		System::String^ reapprovisionnement_produit;
+		int cout_achat;
 		int stock_produit;
+		int seuil_reapprovisionnement;
 		System::String^ couleur_article;
 		System::String^ remise_article;
 
@@ -73,21 +76,26 @@ namespace NS_Comp_Mappage
 		System::String^ InsertCommande(void);
 		System::String^ DeleteCommande(int);
 		System::String^ UpdateCommande(void);
-		void setCommande( int, int, System::String^, System::String^, System::String^, System::String^, System::String^, int);
+		void setCommande( int, int, System::String^, System::String^, System::String^, System::String^, System::String^, int, int);
 
 		// Stats functions
-		System::String^ SelectStats(void);
-		System::String^ InsertStats(void);
-		System::String^ DeleteStats(void);
-		System::String^ UpdateStats(void);
-		void setStats(int, int, int, int, int, int);
+		System::String^ MoyennePanier(void);
+		System::String^ MontantTotalClient(void);
+		System::String^ ValCommercialeStock(void);
+		System::String^ ValCommercialeAchat(void);
+		System::String^ Top10Articles(void);
+		System::String^ Chiffre_Daffaire_par_mois(void);
+		System::String^ Valeur_Commercial_Stock(void);
+		System::String^ reapprovisionnement_produit_sous_seuil(void);
+		System::String^ Article_moins_vendus(void);
+		void setStats(int);
 
 		// Article functions
 		System::String^ SelectArticle(void);
 		System::String^ InsertArticle(void);
 		System::String^ DeleteArticle(int);
 		System::String^ UpdateArticle(void);
-		void setArticle(int, System::String^, System::String^, System::String^, int, System::String^, System::String^);
+		void setArticle(int, System::String^, System::String^, System::String^, int, int, int, System::String^, System::String^);
 
 	};
 }
