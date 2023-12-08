@@ -1,0 +1,4 @@
+﻿  CLmap.cpp
+C:\Users\satyr\source\repos\projet poo\projet poo\CLmap.cpp(242,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Adress_Gestion.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  projet poo.vcxproj -> C:\Users\satyr\source\repos\projet poo\x64\Debug\projet poo.exe
