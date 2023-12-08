@@ -8,3 +8,4 @@ C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.Login.reso
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.Statistiques.resources
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.UsersPage.resources
 C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projet poo.vcxproj.GenerateResource.cache
+C:\Users\satyr\source\repos\projet poo\projet poo\x64\Debug\projetpoo.Simulation.resources

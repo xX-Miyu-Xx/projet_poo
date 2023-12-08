@@ -5,7 +5,9 @@
 #include "CRUD_Commandes.h"
 #include "CRUD_Stock.h"
 #include "Statistiques.h"
+#include "Simulation.h"
 #include "Adress_Gestion.h"
+#include "CRUD_User.h"
 #include <map>
 #include <string>
 #pragma once
@@ -160,12 +162,13 @@ namespace Login {
 		String^ enteredLogin = textBox1->Text;
 		String^ enteredPassword = textBox2->Text;
 
-		if (enteredLogin == "User" && enteredPassword == "User") {																						// a changer avec la bdd
+		if (enteredLogin == "User" && enteredPassword == "User") {																					
 			// Attribuer a la variable utilisateur, la personne qui s'est identifie pour pouvoir y acceder par la suite
 			utilisateur = gcnew Utilisateur("Mark", 1, "Vassilenko", "user");
 
 			// Créer une instance du formulaire MyForm
 			Pages["UsersPage"] = gcnew UsersPage::UsersPage(utilisateur, Pages);
+			Pages["CRUD_User"] = gcnew CRUD_User::CRUD_User(utilisateur, Pages);
 			this->setIsLogged(true);
 
 			// Afficher le formulaire MyForm
@@ -186,6 +189,7 @@ namespace Login {
 			Pages["CRUD_Stock"] = gcnew CRUD_Stock::CRUD_Stock(utilisateur, Pages);
 			Pages["Statistiques"] = gcnew Statistiques::Statistiques(utilisateur, Pages);
 			Pages["Adress_Gestion"] = gcnew Adress_Gestion::Adress_Gestion(utilisateur, Pages);
+			Pages["CRUD_User"] = gcnew CRUD_User::CRUD_User(utilisateur, Pages);
 			this->setIsLogged(true);
 
 			// Afficher le formulaire MyForm

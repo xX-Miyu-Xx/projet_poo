@@ -1,7 +1,8 @@
-﻿//MyForm.H*********************************************************************************************
-#pragma once
+﻿#pragma once
+
 #include "CLservices.h"
 #include "User.h"
+#include "Simulation.h"
 #include <map>
 #include <string>
 
@@ -209,6 +210,7 @@ namespace Statistiques {
 			this->button15->TabIndex = 43;
 			this->button15->Text = L"Simulation";
 			this->button15->UseVisualStyleBackColor = true;
+			this->button15->Click += gcnew System::EventHandler(this, &Statistiques::button15_Click);
 			// 
 			// button14
 			// 
@@ -648,6 +650,20 @@ namespace Statistiques {
 		this->oDs = this->oSvc->reapprovisionnement_produits_sous_seuil("Rsl");
 		this->dgv_enr->DataSource = this->oDs;
 		this->dgv_enr->DataMember = "Rsl";
+	}
+	private: System::Void button15_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (Pages->ContainsKey("Simulation")) 
+		{
+			try { Pages["Simulation"]->Close(); }
+			catch (Exception^ e) {};
+			Pages["Simulation"] = gcnew Simulation::Simulation(oDs, oSvc, dgv_enr);
+			Pages["Simulation"]->Show();
+		}
+		else
+		{
+			Pages["Simulation"] = gcnew Simulation::Simulation(oDs, oSvc, dgv_enr);
+			Pages["Simulation"]->Show();
+		}
 	}
 };
 }

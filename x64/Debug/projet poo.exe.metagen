@@ -4,6 +4,7 @@
   projetpoo.CRUD_Personnel.resources - Embedded, ContainedInManifestFile, 
   projetpoo.CRUD_Stock.resources - Embedded, ContainedInManifestFile, 
   projetpoo.Login.resources - Embedded, ContainedInManifestFile, 
+  projetpoo.Simulation.resources - Embedded, ContainedInManifestFile, 
   projetpoo.Statistiques.resources - Embedded, ContainedInManifestFile, 
   projetpoo.UsersPage.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
@@ -43,9 +44,15 @@ Class CRUD_Personnel.CRUD_Personnel: AutoLayout, AnsiClass, Class, Public, Befor
 Class CRUD_Stock.CRUD_Stock: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CRUD_User.CRUD_User: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class UsersPage.UsersPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Simulation.Simulation: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Data.DataSet, NS_Comp_Svc.CLservices, System.Windows.Forms.DataGridView): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Statistiques.Statistiques: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(Utilisateur, System.Collections.Generic.Dictionary`2[System.String,System.Windows.Forms.Form] ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

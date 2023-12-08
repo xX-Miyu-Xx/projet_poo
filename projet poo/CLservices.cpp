@@ -299,3 +299,11 @@ System::Data::DataSet^ NS_Comp_Svc::CLservices::Article_moins_vendus(System::Str
 	sql = this->oMappTB->Article_moins_vendus();
 	return this->oCad->getRows(sql, dataTableName);
 }
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Simulation(System::String^ dataTableName, int TVA, int marge, int remise, int demarque)
+{
+	System::String^ sql;
+
+	sql = this->oMappTB->Simulation_sql(TVA, marge, remise, demarque);
+	return this->oCad->getRows(sql, dataTableName);
+}

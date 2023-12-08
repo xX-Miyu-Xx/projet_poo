@@ -236,6 +236,14 @@ System::String^ NS_Comp_Mappage::CLmapTB::Article_moins_vendus(void)
 	return "SELECT TOP 10 a.id_article, COUNT(ca.id_article) AS nombre_de_ventes FROM [Projet_POO].[dbo].[Articles] a LEFT JOIN [Projet_POO].[dbo].[commande_article] ca ON a.id_article = ca.id_article GROUP BY a.id_article ORDER BY nombre_de_ventes ASC;";
 }
 
+System::String^ NS_Comp_Mappage::CLmapTB::Simulation_sql(int TVA, int marge, int remise, int demarque)
+{
+	//mettre la requete ici
+}
+
+
+
+
 void NS_Comp_Mappage::CLmapTB::setStats(int id_client)
 {
 	this->id_client = id_client;

@@ -110,6 +110,7 @@ namespace NS_Comp_Mappage
 		System::String^ reapprovisionnement_produit_sous_seuil(void);
 		System::String^ Article_moins_vendus(void);
 		void setStats(int);
+		System::String^ Simulation_sql(int, int, int, int);
 
 		// Article functions
 		System::String^ SelectArticle(void);

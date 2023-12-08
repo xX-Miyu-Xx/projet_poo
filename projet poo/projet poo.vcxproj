@@ -128,8 +128,10 @@
     <ClCompile Include="CRUD_Commandes.cpp" />
     <ClCompile Include="CRUD_Personnel.cpp" />
     <ClCompile Include="CRUD_Stock.cpp" />
+    <ClCompile Include="CRUD_User.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Statistiques.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UsersPage.cpp" />
@@ -153,7 +155,13 @@
     <ClInclude Include="CRUD_Stock.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CRUD_User.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Simulation.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Statistiques.h">
@@ -185,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Simulation.resx">
+      <DependentUpon>Simulation.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Statistiques.resx">
       <DependentUpon>Statistiques.h</DependentUpon>

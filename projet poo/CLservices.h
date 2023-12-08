@@ -58,5 +58,6 @@ namespace NS_Comp_Svc
 		System::Data::DataSet^ Valeur_Commercial_Stocks(System::String^);
 		System::Data::DataSet^ reapprovisionnement_produits_sous_seuil(System::String^);
 		System::Data::DataSet^ Article_moins_vendus(System::String^);
+		System::Data::DataSet^ Simulation(System::String^,int,int,int,int);
 	};
 }
