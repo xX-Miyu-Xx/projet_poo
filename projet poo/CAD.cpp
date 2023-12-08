@@ -4,7 +4,7 @@
 
 NS_Comp_Data::CLcad::CLcad(void)
 {
-	this->sCnx = "Data Source=DESKTOP-RD7IRCU;Integrated Security=True;Encrypt=False;";
+	this->sCnx = "Data Source=localhost;Integrated Security=True;Encrypt=False;";
 
 	this->sSql = "Rien";
 
