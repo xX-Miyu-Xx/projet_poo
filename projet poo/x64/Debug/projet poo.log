@@ -1,27 +1,4 @@
-﻿  Login.cpp
-C:\Users\satyr\source\repos\projet poo\projet poo\Simulation.h(24,13): warning C4677: 'Simulation': signature of non-private member contains assembly private type 'NS_Comp_Svc::CLservices'
-  (compiling source file 'Login.cpp')
-  C:\Users\satyr\source\repos\projet poo\projet poo\CLservices.h(8,12):
-  see declaration of 'NS_Comp_Svc::CLservices'
-  
-C:\Users\satyr\source\repos\projet poo\projet poo\Statistiques.h(658,22): warning C4101: 'e': unreferenced local variable
-  (compiling source file 'Login.cpp')
-  
-  Simulation.cpp
-C:\Users\satyr\source\repos\projet poo\projet poo\Simulation.h(24,13): warning C4677: 'Simulation': signature of non-private member contains assembly private type 'NS_Comp_Svc::CLservices'
-  (compiling source file 'Simulation.cpp')
-  C:\Users\satyr\source\repos\projet poo\projet poo\CLservices.h(8,12):
-  see declaration of 'NS_Comp_Svc::CLservices'
-  
-  Statistiques.cpp
-C:\Users\satyr\source\repos\projet poo\projet poo\Simulation.h(24,13): warning C4677: 'Simulation': signature of non-private member contains assembly private type 'NS_Comp_Svc::CLservices'
-  (compiling source file 'Statistiques.cpp')
-  C:\Users\satyr\source\repos\projet poo\projet poo\CLservices.h(8,12):
-  see declaration of 'NS_Comp_Svc::CLservices'
-  
-C:\Users\satyr\source\repos\projet poo\projet poo\Statistiques.h(658,22): warning C4101: 'e': unreferenced local variable
-  (compiling source file 'Statistiques.cpp')
-  
-  Generating Code...
+﻿  CLmap.cpp
+C:\Users\satyr\source\repos\projet poo\projet poo\CLmap.cpp(242,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Adress_Gestion.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   projet poo.vcxproj -> C:\Users\satyr\source\repos\projet poo\x64\Debug\projet poo.exe

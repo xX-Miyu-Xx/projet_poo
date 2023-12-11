@@ -86,21 +86,22 @@ System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerLaTableClient(System
 	sql = this->oMappTB->SelectClient();
 	return this->oCad->getRows(sql, dataTableName);
 }
-void NS_Comp_Svc::CLservices::ajouterUnClient(int id_client, System::String^ client_prenom, System::String^ client_nom, System::String^ adresse_client, System::String^ adresse_livraison_client, System::String^ anniversaire_client, int id_ville, System::String^ date_1erachat)
+void NS_Comp_Svc::CLservices::ajouterUnClient(int id_client, System::String^ client_prenom, System::String^ client_nom, System::String^ adresse_client, System::String^ adresse_livraison_client, System::String^ anniversaire_client, System::String^ date_1erachat, int id_adresse)
 {
 	System::String^ sql;
 
-	this->oMappTB->setClient(id_client, client_prenom, client_nom, adresse_client, adresse_livraison_client, anniversaire_client, id_ville, date_1erachat);
+	this->oMappTB->setClient(id_client, client_prenom, client_nom, adresse_client, adresse_livraison_client, anniversaire_client, date_1erachat, id_adresse);
 	sql = this->oMappTB->InsertClient();
+	System::Windows::Forms::MessageBox::Show(sql);
 
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc::CLservices::modifierUnClient(int id_client, System::String^ client_prenom, System::String^ client_nom, System::String^ adresse_client, System::String^ adresse_livraison_client, System::String^ anniversaire_client, int id_ville, System::String^ date_1erachat)
+void NS_Comp_Svc::CLservices::modifierUnClient(int id_client, System::String^ client_prenom, System::String^ client_nom, System::String^ adresse_client, System::String^ adresse_livraison_client, System::String^ anniversaire_client, System::String^ date_1erachat, int id_adresse)
 {
 	System::String^ sql;
 
-	this->oMappTB->setClient(id_client, client_prenom, client_nom, adresse_client, adresse_livraison_client, anniversaire_client, id_ville, date_1erachat);
+	this->oMappTB->setClient(id_client, client_prenom, client_nom, adresse_client, adresse_livraison_client, anniversaire_client, date_1erachat, id_adresse);
 	sql = this->oMappTB->UpdateClient();
 
 	this->oCad->actionRows(sql);

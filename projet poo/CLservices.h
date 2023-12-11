@@ -27,8 +27,8 @@ namespace NS_Comp_Svc
 
 		// Client functions
 		System::Data::DataSet^ selectionnerLaTableClient(System::String^);
-		void ajouterUnClient(int, System::String^, System::String^, System::String^, System::String^, System::String^, int, System::String^);
-		void modifierUnClient(int, System::String^, System::String^, System::String^, System::String^, System::String^, int, System::String^);
+		void ajouterUnClient(int, System::String^, System::String^, System::String^, System::String^, System::String^, System::String^, int);
+		void modifierUnClient(int, System::String^, System::String^, System::String^, System::String^, System::String^, System::String^, int);
 		void supprimerUnClient(int);
 
 		// Article functions
