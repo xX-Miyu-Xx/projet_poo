@@ -242,9 +242,7 @@ System::String^ NS_Comp_Mappage::CLmapTB::Simulation_sql(int TVA, int marge, int
 	float valeur = 0.01 * (marge * (100 - demarque - remise - TVA));
 	System::String^ valeur_string = System::Convert::ToString(valeur);
 	valeur_string = valeur_string->Replace(",", ".");
-	System::Windows::Forms::MessageBox::Show("SELECT SUM(valeur_article_stock) AS valeur_commerciale_stock FROM (SELECT a.montant_HT * a.stock_produit * " + valeur_string + " AS valeur_article_stock FROM [Projet_POO].[dbo].[Articles] a) AS subquery;");
 	return "SELECT SUM(valeur_article_stock) AS valeur_commerciale_stock FROM (SELECT a.montant_HT * a.stock_produit * " + valeur_string + " AS valeur_article_stock FROM [Projet_POO].[dbo].[Articles] a) AS subquery;";
-
 }
 
 
