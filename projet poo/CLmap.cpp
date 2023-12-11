@@ -8,7 +8,7 @@ System::String^ NS_Comp_Mappage::CLmapTB::SelectPersonnel(void)
 }
 System::String^ NS_Comp_Mappage::CLmapTB::InsertPersonnel(void)
 {
-	return "INSERT INTO [Projet_POO].[dbo].[Personnel] VALUES("+this->id_personnel+", '" + this->nom_personnel + "', '" + this->prenom_personnel + "', " + this->age_personnel + ", '" + this->adresse_personnel + "', '" + this->date_embauche_personnel + "', " + this->sup_hierarchique_personnel + "); ";
+	return "INSERT INTO [Projet_POO].[dbo].[Personnel] VALUES("+this->id_personnel+", '" + this->prenom_personnel + "', '" + this->nom_personnel + "', " + this->age_personnel + ", '" + this->adresse_personnel + "', '" + this->date_embauche_personnel + "', " + this->sup_hierarchique_personnel + "); ";
 }
 System::String^ NS_Comp_Mappage::CLmapTB::DeletePersonnel(int id)
 {
@@ -53,7 +53,7 @@ System::String^ NS_Comp_Mappage::CLmapTB::SelectClient(void)
 
 System::String^ NS_Comp_Mappage::CLmapTB::InsertClient(void)
 {
-	return "INSERT INTO [Projet_POO].[dbo].[Client] VALUES(" + this->id_client + ", '" + this->client_prenom + "', '" + this->client_nom + "', '" + this->adresse_client + "', '" + this->adresse_livraison_client + "', '"+this->anniversaire_client+"' , "+this->id_ville_client+", '"+this->date_1erachat+"');";
+	return "INSERT INTO [Projet_POO].[dbo].[Client] VALUES(" + this->id_client + ", '" + this->client_prenom + "', '" + this->client_nom + "', '" + this->adresse_client + "', '" + this->adresse_livraison_client + "', '"+this->anniversaire_client+"' , '"+this->date_1erachat+"', "+this->id_adresse+");";
 }
 
 System::String^ NS_Comp_Mappage::CLmapTB::DeleteClient(int id)
@@ -63,10 +63,10 @@ System::String^ NS_Comp_Mappage::CLmapTB::DeleteClient(int id)
 
 System::String^ NS_Comp_Mappage::CLmapTB::UpdateClient(void)
 {
-	return "UPDATE [Projet_POO].[dbo].[Client] SET client_prenom = '" + this->client_prenom + "', client_nom = '" + this->client_nom + "', adresse_client = '" + this->adresse_client + "', adresse_livraison_client = '" + this->adresse_livraison_client + "', anniversaire_client = '" + this->anniversaire_client + "', id_ville = " + this->id_ville + ", date_1erachat = '" + this->date_1erachat + "' WHERE id_client = " + this->id_client + ";";
+	return "UPDATE [Projet_POO].[dbo].[Client] SET client_prenom = '" + this->client_prenom + "', client_nom = '" + this->client_nom + "', adresse_client = '" + this->adresse_client + "', adresse_livraison_client = '" + this->adresse_livraison_client + "', anniversaire_client = '" + this->anniversaire_client + "', date_1erachat = '" + this->date_1erachat + "', id_adresse = "+this->id_adresse+" WHERE id_client = " + this->id_client + ";";
 }
 
-void NS_Comp_Mappage::CLmapTB::setClient(int id_client, System::String^ client_prenom, System::String^ client_nom, System::String^ adresse_client, System::String^ adresse_livraison_client, System::String^ anniversaire_client, int id_ville, System::String^ date_1erachat)
+void NS_Comp_Mappage::CLmapTB::setClient(int id_client, System::String^ client_prenom, System::String^ client_nom, System::String^ adresse_client, System::String^ adresse_livraison_client, System::String^ anniversaire_client, System::String^ date_1erachat, int id_adresse)
 {
 	this->id_client = id_client;
 	this->client_prenom = client_prenom;
@@ -74,8 +74,8 @@ void NS_Comp_Mappage::CLmapTB::setClient(int id_client, System::String^ client_p
 	this->adresse_client = adresse_client;
 	this->adresse_livraison_client = adresse_livraison_client;
 	this->anniversaire_client = anniversaire_client;
-	this->id_ville = id_ville;
 	this->date_1erachat = date_1erachat;
+	this->id_adresse = id_adresse;
 }
 
 

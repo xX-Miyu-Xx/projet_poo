@@ -382,14 +382,13 @@ namespace CRUD_Personnel {
 			// 
 			// button7
 			// 
-			this->button7->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->button7->Location = System::Drawing::Point(90, 520);
 			this->button7->Margin = System::Windows::Forms::Padding(4);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(550, 77);
 			this->button7->TabIndex = 22;
 			this->button7->Text = L"Gestion d\'Adresse";
-			this->button7->UseVisualStyleBackColor = false;
+			this->button7->UseVisualStyleBackColor = true;
 			this->button7->Click += gcnew System::EventHandler(this, &CRUD_Personnel::button7_Click);
 			// 
 			// button6

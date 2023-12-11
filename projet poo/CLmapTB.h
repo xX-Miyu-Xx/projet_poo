@@ -78,7 +78,7 @@ namespace NS_Comp_Mappage
 		System::String^ InsertClient(void);
 		System::String^ DeleteClient(int);
 		System::String^ UpdateClient(void);
-		void setClient(int, System::String^, System::String^, System::String^, System::String^, System::String^, int, System::String^);
+		void setClient(int, System::String^, System::String^, System::String^, System::String^, System::String^, System::String^, int);
 
 		// Commande functions
 		System::String^ SelectCommande(void);
