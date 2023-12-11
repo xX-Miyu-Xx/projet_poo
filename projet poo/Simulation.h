@@ -137,7 +137,7 @@ namespace Simulation {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(288, 138);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"button1";
+			this->button1->Text = L"5%";
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &Simulation::button1_Click);
 			// 
@@ -148,7 +148,7 @@ namespace Simulation {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(288, 138);
 			this->button3->TabIndex = 2;
-			this->button3->Text = L"button3";
+			this->button3->Text = L"10%";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &Simulation::button3_Click);
 			// 
@@ -159,7 +159,7 @@ namespace Simulation {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(288, 138);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"button2";
+			this->button2->Text = L"15%";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &Simulation::button2_Click);
 			// 
@@ -376,6 +376,7 @@ namespace Simulation {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->MaximumSize = System::Drawing::Size(946, 1163);
 			this->MinimumSize = System::Drawing::Size(946, 1163);
 			this->Name = L"Simulation";
 			this->Text = L"Simulation";
