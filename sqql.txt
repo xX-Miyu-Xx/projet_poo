@@ -1,0 +1,148 @@
+USE Projet_POO;
+
+
+CREATE TABLE Villes(
+   id_ville INT,
+   nom_ville VARCHAR(50),
+   PRIMARY KEY(id_ville)
+);
+
+CREATE TABLE Adresse(
+   id_adresse INT,
+   rue_adresse VARCHAR(50),
+   code_postal INT,
+   numero_adresse INT,
+   id_ville INT,
+   PRIMARY KEY(id_adresse),
+   FOREIGN KEY(id_ville) REFERENCES Villes(id_ville) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Client(
+   id_client INT,
+   client_prenom VARCHAR(50),
+   client_nom VARCHAR(50),
+   adresse_client VARCHAR(50),
+   adresse_livraison_client VARCHAR(50),
+   anniversaire_client DATE,
+   date_1erachat DATE,
+   id_adresse int,
+   PRIMARY KEY(id_client),
+   FOREIGN KEY (id_adresse) REFERENCES Adresse(id_adresse) ON DELETE CASCADE,
+);
+
+CREATE TABLE Commande(
+   id_commande INT,
+   id_personnel INT,
+   date_livraison DATE,
+   date_commande DATE,
+   date_payement DATE,
+   moyen_payement VARCHAR(50),
+   date_solde DATE,
+   id_client INT NOT NULL,
+   PRIMARY KEY(id_commande),
+   FOREIGN KEY(id_client) REFERENCES Client(id_client) ON DELETE CASCADE
+);
+
+CREATE TABLE Articles(
+   id_article INT,
+   montant_HT DECIMAL(15,2),
+   Montant_TVA DECIMAL(15,2),
+   reapprovisionnement_produit DATE,
+   cout_achat INT,
+   stock_produit INT,
+   seuil_reapprovisionnement INT,
+   couleur_article VARCHAR(50),
+   remise_article VARCHAR(50),
+   PRIMARY KEY(id_article)
+);
+
+CREATE TABLE commande_article(
+   id_commande INT,
+   id_article INT,
+   PRIMARY KEY(id_commande, id_article),
+   FOREIGN KEY(id_article) REFERENCES Articles(id_article) ON DELETE CASCADE,
+   FOREIGN KEY(id_commande) REFERENCES Commande(id_commande) ON DELETE CASCADE
+);
+
+CREATE TABLE Personnel(
+   id_personnel INT,
+   prenom_personnel VARCHAR(50),
+   nom_personnel VARCHAR(50),
+   age_personnel VARCHAR(50),
+   adresse_personnel VARCHAR(50),
+   date_embauche DATE,
+   id_supperieur INT,
+   PRIMARY KEY(id_personnel),
+   FOREIGN KEY (id_supperieur) REFERENCES Personnel(id_personnel) ON DELETE NO ACTION,
+);
+
+CREATE TABLE facture(
+   id_facture INT,
+   nom_societe VARCHAR(50),
+   service_client INT,
+   logo VARCHAR(50),
+   PRIMARY KEY(id_facture)
+);
+
+
+
+
+
+use Projet_POO;
+-- Insertion de donnees dans la table Villes
+INSERT INTO Villes (id_ville, nom_ville)
+VALUES
+    (1, 'Paris'),
+    (2, 'Lyon'),
+    (3, 'Marseille'),
+    (4, 'Bordeaux');
+
+-- Insertion de donnees dans la table Adresse
+INSERT INTO Adresse (id_adresse, rue_adresse, numero_adresse, code_postal, id_ville)
+VALUES
+    (1, 'Rue de la Republique', 123, 00001, 1),
+    (2, 'Avenue des Fleurs', 456, 00002, 2),
+    (3, 'Boulevard du Commerce', 789, 00003, 3),
+    (4, 'Rue de la Liberte', 456, 00004, 4);
+
+-- Insertion de donnees dans la table Client
+INSERT INTO Client (id_client, client_prenom, client_nom, adresse_client, adresse_livraison_client, anniversaire_client, date_1erachat,id_adresse)
+VALUES
+    (1, 'John', 'Doe', '123 Rue de la Republique', '123 Rue de la Republique', '1990-05-15', '2023-01-01',1),
+    (2, 'Jane', 'Smith', '456 Avenue des Fleurs', '456 Avenue des Fleurs', '1985-08-22', '2023-01-02',2),
+    (3, 'Alice', 'Johnson', '789 Boulevard du Commerce', '789 Boulevard du Commerce', '1992-03-10', '2023-01-03',3),
+    (4, 'Bob', 'Johnson', '456 Rue de la Liberte', '456 Rue de la Liberte', '1980-11-30', '2023-01-04',4);
+
+-- Insertion de donnees dans la table Articles
+INSERT INTO Articles (id_article, montant_HT, Montant_TVA, reapprovisionnement_produit, cout_achat, stock_produit, seuil_reapprovisionnement, couleur_article, remise_article)
+VALUES
+    (1, 50.00, 10.00, '10/02/2022', 30, 100, 180, 'Rouge', '5%'),
+    (2, 30.00, 6.00, '01/02/2022', 22, 150, 180, 'Bleu', '2%'),
+    (3, 20.00, 4.00, '10/01/2022', 10, 200, 180, 'Vert', '3%'),
+    (4, 40.00, 8.00, '08/02/2022', 20, 120, 180, 'Jaune', '1%');
+
+-- Insertion de donnees dans la table Personnel
+INSERT INTO Personnel (id_personnel, prenom_personnel, nom_personnel, age_personnel, adresse_personnel, date_embauche, id_supperieur)
+VALUES
+    (1, 'Alex', 'Martin', 35, '456 Rue de la Liberte', '2023-01-01', 4),
+    (2, 'Emily', 'Clark', 28, '789 Avenue des etoiles', '2023-01-02', 1),
+    (3, 'Daniel', 'White', 40, '123 Boulevard de lAvenir', '2023-01-03', 2),
+    (4, 'Sophie', 'Taylor', 32, '456 Rue de la Paix', '2023-01-04', 1);
+
+-- Insertion de donnees dans la table Commande
+INSERT INTO Commande (id_personnel, id_commande, date_livraison, date_commande, date_payement, moyen_payement, date_solde, id_client)
+VALUES
+    (1, 101, '2023-01-10', '2023-01-01', '2023-01-05', 'Carte de credit', '2023-01-15', 1),
+    (2, 102, '2023-01-15', '2023-01-02', '2023-01-05', 'Virement bancaire', '2023-01-20', 2),
+    (3, 103, '2023-01-20', '2023-01-03', '2023-01-05', 'ChÃ¨que', '2023-01-25', 3),
+    (4, 104, '2023-01-25', '2023-01-04', '2023-01-08', 'PayPal', '2023-02-05', 4);
+
+
+INSERT INTO commande_article VALUES 
+	(101,1),
+	(101,2),
+	(102,3),
+	(103,2),
+	(104,1),
+	(104,4);
